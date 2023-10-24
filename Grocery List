@@ -1,0 +1,35 @@
+#Below is my basic grocery list program using the extend function instead of establishing a new empty list.
+#It also includes a duplicate remover.
+
+def updated_list(persons_list):
+    """Enter name of family member's list"""
+    y_or_n = str(input("Do you wish to add new items to your list? Y or N: ").lower())
+    if y_or_n == "n":
+        print("\nAll done.")
+        
+    else:
+        new_item = input("Enter new items separated by a comma: ")
+        new_items = new_item.split(", ")
+        persons_list.extend(new_items)
+        
+        for food in persons_list:
+            if persons_list.count(food) > 1:
+                persons_list.remove(food)
+        print(f"\n{person.title()}'s updated list now contains:\n")
+        for food in persons_list:
+            print(f"    {food}")
+            
+susan_list1 = ["yogurt","basil", "garlic", "pasta", "tomatoes"]
+dan_list2 = ["apples","grapefruit", "cheese", "shrimp", "salmon"]
+person = str(input("What is your name? ").lower())
+
+if person == "Susan".lower():
+    print (f"Hello {person.title()}, your usual grocery list always includes: {susan_list1}")
+    print("\n")
+    updated_list(susan_list1)
+elif person == "Dan".lower():
+    print (f"Hello {person.title()}, your usual grocery list always includes: {dan_list2}")
+    print("\n")
+    updated_list(dan_list2)
+else:
+    print("You are not a registered member of this family.  Please speak with a current family member.")
