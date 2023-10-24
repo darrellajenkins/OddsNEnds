@@ -1,0 +1,7 @@
+# My code to remove duplicate numbers from a list.  In principle this can also be used for txt, csv, or data from web content.
+
+numlist = [12, 46, 41, 52, 89, 4, 81, 63, 22, 103, 215, 12, 312, 70, 12]
+for num in numlist:
+    if numlist.count(num) > 1:
+        numlist.remove(num)
+print(numlist)
