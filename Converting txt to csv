@@ -1,0 +1,19 @@
+# How to convert a text file into a csv file and also remove and/or replace unwanted characters:
+
+import pandas
+
+with open("quotes.txt") as file:
+    start = file.readlines()
+    for row in start:
+        if "~" in row:
+            b = row
+            c = b.replace("~", ",")
+            with open("quotes2.txt", mode="a") as newfile:
+                newfile.write(c)
+
+with open("quotes2.txt") as file5:
+    onefile = file5.readlines()
+
+dataset = pandas.DataFrame(onefile)
+
+dataset.to_csv("quotes2.csv")
