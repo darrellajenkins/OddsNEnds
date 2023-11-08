@@ -1,4 +1,4 @@
-#  Learning the differences between using list.sort() and sorted()
+#  Learning the differences between using list.sort() and sorted(). Contains practice code with results for each function.
 milk = [12, 80, 70 ,69 ,32 ,11, 25, 14, 77, 18, 26]
 x = sorted(milk)
 cookies = [12, 80, 70 ,69 ,32 ,11, 25, 14, 77, 18, 26]
