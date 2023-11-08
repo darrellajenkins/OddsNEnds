@@ -1,4 +1,4 @@
-# How to convert a text file into a csv file and also remove and/or replace unwanted characters:
+# How to convert a text file into a csv file and also remove and/or replace unwanted characters.
 
 import pandas
 
