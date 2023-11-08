@@ -1,0 +1,5 @@
+# This app was created with Tkinter.  It provides motivation and inspiration by displaying quotes when clicking the button at the bottom of the interface.
+# There is also a pleasing background made of two png files.
+# For some reason tkinter does not allow switching the canvas picure more than once, so there are only two pictures separated by 8 seconds using the canvas.after function.
+# I've tried many ways of trying to get around this limitation to create a slide show such as multiple functions with different canvas names, etc., but to no avail.
+# Additional research is needed to enhance the app so it will allow for automatic slideshow or to display a new photo each time the button is clicked.
