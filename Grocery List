@@ -1,5 +1,5 @@
-#Below is my basic grocery list program using the extend function instead of establishing a new empty list.
-#It also includes a duplicate remover.
+# My basic grocery list app using the extend function instead of establishing a new empty list.
+# It also includes a duplicate remover.
 
 def updated_list(persons_list):
     """Enter name of family member's list"""
