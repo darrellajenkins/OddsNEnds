@@ -24,7 +24,9 @@ def check():
 
 def tomorrow():
     label_1.config(text="Come back tomorrow for more inspiration.  Now go code!", fg="blue", bg="#219C90", font=("Aharoni", 16, "normal"))
-
+    label_3.destroy()
+    button_2["state"] = "disabled"
+    
 label_2 = tkinter.Label(text="Today is a great day to continue from where you left off.\nNever give up. You will succeed!", fg="black", bg="#FFB000", font=("Vivaldi", 16, "bold", "normal"))
 label_2.grid(column=2, row=1)
 label_2.config(padx=39)
