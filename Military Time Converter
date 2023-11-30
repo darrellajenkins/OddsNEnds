@@ -1,0 +1,14 @@
+# Converts military time to standard time
+militaryt = input("Enter military time: ")
+hours = int(militaryt[0:2])
+minutes = militaryt[2:]
+
+if hours >= 12:
+    meridiem = "PM"
+    hours %= 12
+else:
+    meridiem = "AM"
+if hours == 0:
+    hours = 12
+
+print(f"\nThe time in standard format is {str(hours)}:{str(minutes)}{meridiem}")
