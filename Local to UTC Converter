@@ -1,0 +1,15 @@
+# Converts your local time into UTC time. Useful when using programs that output in UTC time and you need to convert your local time to compare apples to apples.
+
+import datetime
+from datetime import timezone
+
+l = str(datetime.datetime.now())
+u = str(datetime.datetime.now(timezone.utc))
+lfind = l.find(".")
+ufind = u.find(".")
+#print(lfind, ufind)
+
+local_time = l[0:19]
+utc_time = u[0:19]
+print(f"Local Time: {local_time}")
+print(f"UTC Time: {utc_time}")
