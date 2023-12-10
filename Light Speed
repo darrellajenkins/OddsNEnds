@@ -1,0 +1,20 @@
+# Design a basic speed of light calculator that returns distance or time
+
+
+def special():
+    """Provides the distance you can travel in a given amount of hours at lightspeed or the time it will take in a given amount of miles at lightspeed."""
+    lightspeed = float(186282.39)
+    print(f"The speed of light equals {lightspeed} per second.")
+    choice = input("Would you like to calculate time or distance (t or d)? ")
+    if choice == "t":
+        miles = float(input("How many miles will you be travelling at the speed of light?: "))
+        time_result = miles/lightspeed * 1/3600
+        print(f"Travelling {miles:,.2f} miles at the speed of light will take you {round(time_result, 5):,.2f} hour(s).")
+        print(f"This result is the equivalent of {round(time_result/24, 2)} day(s), or {round(time_result/24/365, 2)} year(s).")
+    elif choice == "d":
+        hours = float(input("How many hours?: "))
+        distance_calc = hours * 670616604  # Number of miles travelled in 1 hour (lightspeed * 60 * 60)
+        print(f"After {hours:,.2f} hours, you will have travelled {round(distance_calc, 5):,.2f} miles(s) at the speed of light.")
+
+
+special()
