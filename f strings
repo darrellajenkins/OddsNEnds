@@ -1,0 +1,60 @@
+# F Strings
+
+import datetime
+
+
+x, y = 10, 20
+# print(f"x = {x}, y = {y}")
+
+print(f"{x = }, {y = }")
+
+# decimal places
+number = 7000
+print(f"number: {number:.2f}")
+print(f"{number = :.2f}")
+
+# hex conversion
+print(f"hex: {number:#0x}")
+
+# binary conversion
+print(f"binary: {number:b}")
+
+# octal conversion
+print(f"octal: {number:o}")
+
+# scientific notation
+print(f"scientific: {number:e}")
+
+# total number of characters
+print(f"Number: {number:09}")
+
+today = datetime.datetime.now()  # This is local time.  But if you want UTC:  datetime.datetime.now(datetime.UTC).
+print(f"datetime : {today}\n")
+
+print(f"date time: {today:%m/%d/%Y %H:%M:%S}")
+print(f"date: {today:%m/%d/%Y}")
+print(f"time: {today:%H:%M:%S.%f}")
+print(f"time: {today:%H:%M:%S %p}")
+print(f"time: {today:%H:%M}")
+
+print(f"Day/Date: {today:%c}")
+print(f"Day of the year: {today:%j}")
+day_of_year = f"{today:%j}"
+print(f"Percent progress into the year: {int(day_of_year)/365 * 100:.2f}%")
+
+number = 4
+print(f"the number is {number:4}")
+
+for number in range(1, 5):
+    print(F"the number is {number:{number}}")
+
+left = "left text"
+center = "center text!"
+right = "right text"
+print(f" {left:<20}")
+print(f" {center:^20}")
+print(f" {right:>20}")
+print(f" {left : <20}{center : ^20}{right : >20}")
+
+large_num = 788523421503
+print(f"{large_num:,.2f}")
