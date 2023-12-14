@@ -1,0 +1,14 @@
+# TO FIX THE ASCII ERROR "UnicodeEncodeError: 'ascii' codec can't encode character"
+# SIMPLY ADD ".encode('utf8')" TO THE END OF YOUR MSG LINE
+
+# EXAMPLE:
+
+var = "such and such"
+my_gmail = "...gmail.com"
+password = os.environ.get("PASS_WORD")
+with smtplib.SMTP("smtp.gmail.com") as connection:
+    connection.starttls()
+    connection.login(user=my_gmail, password=password)
+    connection.sendmail(from_addr=my_gmail,
+                        to_addrs="...gmail.com",
+                        msg=f"Subject:HELLO{var}".encode('utf8'))
