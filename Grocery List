@@ -16,7 +16,7 @@ def updated_list(persons_list):
             if persons_list.count(food) > 1:
                 persons_list.remove(food)
         print(f"\n{person.title()}'s updated list now contains:\n")
-        print('\n'.join(f"{num}. {ltr}" for num, ltr in enumerate(persons_list, start=1)))
+        print('\n'.join(f"{num}. {food}" for num, food in enumerate(persons_list, start=1)))
 
 susan_list1 = ["yogurt","basil", "garlic", "pasta", "tomatoes"]
 dan_list2 = ["apples","grapefruit", "cheese", "shrimp", "salmon"]
