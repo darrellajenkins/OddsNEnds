@@ -1,0 +1,47 @@
+# Dict editor:
+raw = dict(a=1,p=16, r=18, i=9, l=12, e=55)
+print("\n")
+print(raw)
+
+def remove_key():
+    removed_key = str(input('Which key would you like to remove?: '))
+    source_dict_str = str(input('From which dictionary should I remove this key?: '))
+    source_dict = eval(source_dict_str)
+    source_dict.pop(removed_key)
+    print(f"\nThe \033[31m '{removed_key}' key has been removed \033[32m from the '{source_dict_str}' dictionary.")
+    return source_dict, removed_key
+
+source_dict, removed_key = remove_key()
+print(f"\n\033[39mThis is how the new dictionary looks: \n\n\t{source_dict}")
+#for letters, value in source_dict.items():
+    #print(letters,value)
+
+def add_key():
+    added_key = str(input('Which key would you like to add?: '))
+    source_dict_str = str(input('To which dictionary should I add this key?: '))
+    source_dict = eval(source_dict_str)
+    value_dict_str = str(input('What is the value?: '))
+    value_dict = eval(value_dict_str)
+    source_dict[added_key] = value_dict
+    print(f"\nThe \033[36m '{added_key}' key has been added \033[32m to the '{source_dict_str}' dictionary.")
+    return source_dict, added_key
+
+t = input("Do you wish to add it back or create another key? ")
+if t == 'y':
+    source_dict, added_key = add_key()    
+else:
+    print("Let me know if I can assist you again.")
+print(f"\n\033[39mThis is how the new dictionary looks: \n\n\t{source_dict}")
+
+# Product (SKU) check
+print('A customer asks "Do you have <product name> in stock?')
+print('Then you respond, "Let me check, one moment please."')
+
+def stock_checker():
+    instock = ['high heels', 'boots', 'loafers','black laces', 'brown laces', 'slippers', 'sneakers']
+    req_item = input("\nEnter the name of the requested product: ")
+    print("Yes, that's in stock!" if req_item in instock else "No, I'm sorry that is not in stock.")
+    next_item = input('Would you like to check another item ("y" or "n"): ')
+    stock_checker() if next_item == "y" else print("Thank you and have a nice day!")
+
+stock_checker()
