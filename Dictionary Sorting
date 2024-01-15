@@ -1,0 +1,28 @@
+# You cannot sort a dictionary, but you CAN sort keys(), values(), or items() from a dictionary!:
+cartoon = {'Tom': 'Cat', 'Jerry': 'Mouse', 'Leo': 'Lion', 'Woody': 'Woodpecker'}
+for key in cartoon:  # same as "for key in cartoon.keys()"
+    print(key)
+for key, value in cartoon.items():
+    print(f"Introducing...{key} the {value}.")
+print("\n")
+    
+print(sorted(cartoon))  # Prints only KEYS in alpha order as a list
+for key in sorted(cartoon.keys()):  # Sorts by keys
+    print(f"\033[31mNow introducing in alphabetical order - {key} the {cartoon[key]}")  # Prints the key AND corresponding value in alpha ACCORDING TO THE KEY
+for name, title in sorted(cartoon.items()):  # Sorts by keys and values
+    print(f"\033[35m{name} - {title}")  # CODE READS EASIER HERE - print the key and corresponding value in alpha according to the key
+
+for value in sorted(cartoon.values()):  # Sorts by values but you can only access the values
+    print(f"\033[32m{value}")  # Prints only VALUES in alpha because you CANNOT ACCESS THE KEYS WITH THIS METHOD...BUT THERE IS A WAY
+print("\n")
+
+#  SORT A DICT BY VALUES INSTEAD OF KEYS AND ACCESS BOTH VALUE AND CORRESPONDING KEY
+newcartoon = {}  # Establish empty dict
+for key, value in cartoon.items():  
+        newcartoon[value] = key  # For each pair in orig dict add to new dict but REVERSE the key-value pair.
+print(newcartoon)  # Print to verify the dict is reversed so you can now sort by this key...
+for key, value in sorted(newcartoon.items()):
+    print(f"\033[33m{key}: {value}", end = "| ")
+print("\nIntroducing in alphabetical order: ")
+for key, value in sorted(newcartoon.items()):  # Now you can alpha sort and print by the new key which is the value you wanted to sort by in the first place.
+    print(f"\033[32mOur famous {key}'s name is {value}!")
