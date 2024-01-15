@@ -1,0 +1,15 @@
+# How to return the key for the value entered in a dictionary:
+students= {'George' : 16,
+            'Allison' : 19,
+            'Katie': 14,
+            'Stacy': 20,
+            'Justin': 15,
+            'Mark': 14,
+            'Patty': 15,
+            'Shannon': 14,                         
+          }
+search = int(input("What is the required age to enter Driver's Education Class? "))
+print("The following students are old enough to enter Driver's Education Class:")
+for key, value in students.items():
+    if value >= search:
+        print(key)
