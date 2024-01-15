@@ -13,3 +13,29 @@ print("The following students are old enough to enter Driver's Education Class:"
 for key, value in students.items():
     if value >= search:
         print(key)
+
+# Another example:
+cartoon = {'Tom': 'Cat', 'Jerry': 'Mouse', 'Leo': 'Lion', 'Woody': 'Woodpecker'}
+charac = input("Which animal would you like to know the name of? ")
+for key, value in cartoon.items():  # Obtain the key of an item if you know the value:
+    if value == charac:
+        print(key)
+print("\n")
+
+# A third example:
+prog_langs = {'Sandy': 'Python', 'Lindsay': 'C#', 'Casey': 'Python', 'Erin': 'Python',
+                                  'Jaden': 'Java', 'Steve': 'HTML/CSS', 'Lisa': 'JavaScript', 'Todd': 'SQL',
+                                  'Ellen': 'Java', 'Adrian': 'C++', 'Ryan': 'Python', 'Wendy ': 'Python',
+                                  'Wendy B.': 'HTML/CSS', 'Lloyd': 'SQL', 'Elisa': 'Java', 'Tonia': 'Python'}
+ques = input("For the programming language you enter, I can tell you the names of those persons who program in that language: ")
+for key, value in prog_langs.items():  # Obtain the key of an item if you know the value:
+    if value == ques:
+        print(key)
+print("\n")
+
+# In this fourth example we grab the usually requested value after user enters the key:
+person = input("Give me a person's name and I will tell you the name of the language that person programs in: ")
+for key, value in prog_langs.items():  # Obtain the value of an item if you know the key:
+    if key == person:
+        print(value)
+print("\n")
