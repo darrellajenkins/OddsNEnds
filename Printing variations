@@ -1,0 +1,11 @@
+rawhide = ['hat','men','cowboys','gunslingers','iron', 'gold','ranch']
+for raw in reversed(rawhide):
+    print(raw)
+for raw in reversed(rawhide):
+    print(raw, end=" ")
+    
+print("\n")
+print(", ".join(rawhide[::-1]))
+print(*(rawhide[::-1]))
+print("\n".join(rawhide[::-1]))
+print(*rawhide, sep=", ")
