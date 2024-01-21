@@ -5,3 +5,12 @@ for num in numlist:
     if numlist.count(num) > 1:
         numlist.remove(num)
 print(numlist)
+
+# Another way of removing list duplicates (dev 01/21/24).  This new way, unlike
+# the orig way, preserves the orig order of items in the list:
+coffee = [962, 205, 839, 457, 584, 751, 532, 878, 777, 498, 962, 839, 584, 532, 777]
+for e in coffee[::-1]:
+    if coffee.count(e) > 1:
+        pos = len(coffee) - coffee[::-1].index(e) - 1
+        del coffee[pos]
+print(coffee)
