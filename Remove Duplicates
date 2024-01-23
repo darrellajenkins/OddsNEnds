@@ -15,14 +15,16 @@ for e in coffee[::-1]:
         del coffee[pos]
 print(coffee)
 
-# A third way to remove duplicates (dev 01/21/24) is a while loop:
-numbers = [2,2,2,5,8,9,2,3,2,6,7]
-while 2 in numbers:
-        numbers.remove(2)
-print(numbers)
-
 # By far, the FASTEST way to remove duplicates (dev 01/21/24) from a list is to use a set, HOWEVER,
 # since it is a set its content will be created in a random order:
 espresso = [20, 24, 169, 934, 555, 443, 815, 865, 750, 517, 405, 904, 907, 520, 411, 20, 169, 555, 815, 750, 405, 907]
 espresso_set = set((espresso))
 print(espresso_set)
+
+# Another helpful tool is how to remove all occurrences of an value (dev 01/21/24) by using a while loop, 
+# But this can also be used to remove duplicates:
+numbers = [2,2,2,5,8,9,2,3,2,6,7]
+while 2 in numbers:
+        numbers.remove(2)
+numbers.insert(0, 2)
+print(numbers)
