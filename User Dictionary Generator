@@ -1,0 +1,31 @@
+# User supplied data generates multiple dictionaries. Can use in conjunction with the variable generator.
+
+def make_album(artist,title, numsongs=None):
+    album = {'Artist Name': artist, 'Album Title': title}
+    if numsongs:
+        album['Number of Songs'] = numsongs
+    return album
+
+alpha = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 's', 'y', 'z']
+alphas = [random.choice(alpha) + random.choice(alpha) for a in alpha*30]
+alphaset = set((alphas))
+print(alphaset)
+print(len(alphaset))
+
+listset = list(alphaset)
+print(listset)
+print(len(listset))
+
+c = 0
+while True:
+    print("Enter 'q' to quit.")
+    artist_name = input("Enter the name of the artist. ")
+    if artist_name == 'q':
+        break
+    album_title = input("Enter the title of the album. ")
+    if album_title == 'q':
+        break
+    listset[c] = make_album(artist_name, album_title)
+    c += 1
+for d in listset[0:c]:
+            print(", ".join(f"{key}: {value}" for key, value in d.items()))
