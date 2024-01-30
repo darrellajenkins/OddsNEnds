@@ -1,9 +1,15 @@
 import random
 
-# This is a random variable generator.  Makes 260 but can always change the multiplier to expand database for greater needs.  
-# This provides variables to work in concert with user input, as in the user dictionary generator.
+# This is a random variable generator meant to be used along with a user dictinoary generator.
+# The code also removes expected duplicates and generally supplies an average of over 300 unduplicated variables.
 
 alpha = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 's', 'y', 'z']
-alphas = [random.choice(alpha) + random.choice(alpha) for a in alpha*10]
+alphas = [random.choice(alpha) + random.choice(alpha) for a in alpha*20]
+
+for a in alphas:
+    if alphas.count(a) >1:
+        alphas.remove(a)
+        #print("Yes")
+
 print(alphas)
 print(len(alphas))
