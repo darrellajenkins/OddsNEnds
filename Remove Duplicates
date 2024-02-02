@@ -20,8 +20,9 @@ print(coffee)
 espresso = [20, 24, 169, 934, 555, 443, 815, 865, 750, 517, 405, 904, 907, 520, 411, 20, 169, 555, 815, 750, 405, 907]
 espresso_set = set((espresso))
 print(espresso_set)
+# Afterwards you can convert to a list and then sort or order how you wish.
 
-# Another helpful tool is how to remove all occurrences of an value (dev 01/21/24) by using a while loop, 
+# Another helpful tool is how to remove all occurrences of a value (dev 01/21/24) by using a while loop, 
 # But this can also be used to remove duplicates:
 numbers = [2,2,2,5,8,9,2,3,2,6,7]
 while 2 in numbers:
