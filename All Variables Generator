@@ -4,28 +4,28 @@ import itertools
 
 # This program will produce every possible variable with 4 alpha chararacters (456,976), stores them in a list as dictionaries.
 
-letters = string.ascii_lowercase 
+begin = 0
+end = 913513
 
-sample = [''.join(p) for p in itertools.product(letters, repeat=4)]
+letters = string.ascii_lowercase
 
-for sam in sample:
-    globals()[sam] = {}
+sample = [''.join(p) for p in itertools.product(letters, repeat=5)]  # Total possible 11,881,376 variables
 
-aaaa['Artist'] = 'Prince' 
-aaab['Artist'] = 'Madonna'
-aaac['Artist'] = 'Whitney Houston' 
-aaad['Artist'] = 'Cannons'
+sampling = sample[begin:end+1]
 
-print(aaaa)
-print(aaab)
-print(aaac)
-print(aaad)
-print(len(sample))
+for num in sampling:
+    globals()[num] = {}
 
-print(sample[0:104])
+print(sampling)
+
+bzzhz["Brush"] = 5
+bzzhz["Style"] = "coarse"
+bzzhz["Color"] = "amber"
+print(bzzhz)  # Demonstrates assigning data to a dictionary
 
 s = input("Which name would you like to check? ")
-if s in sample:  
-    print(f"\033[32m{s.title()} \033[39m has been located in the data stream as item \033[32mnumber {(sample.index(s)+1)}\033[39m.\n")
-elif s not in sample:
+if s in sampling:
+    print(f"\033[32m{s.title()} \033[39m has been located in the data stream as item \033[32mnumber "
+          f"{(sampling.index(s)+1)}\033[39m.\n")
+elif s not in sampling:
     print(f"A \033[31m {s} \033[39m was not found in this data set at all.")
