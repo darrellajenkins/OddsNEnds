@@ -2,14 +2,14 @@ import string
 
 import itertools
 
-# This program will produce every possible variable with 4 alpha chararacters (456,976), stores them in a list as dictionaries.
+# This program will produce every possible variable with 5 alpha chararacters and stores them in a list as dictionaries.
 
 begin = 0
 end = 913513
 
 letters = string.ascii_lowercase
 
-sample = [''.join(p) for p in itertools.product(letters, repeat=5)]  # Total possible 11,881,376 variables
+sample = [''.join(p) for p in itertools.product(letters, repeat=5)]  # Total possible 11,881,376 variables but this code targets only the first 913,513
 
 sampling = sample[begin:end+1]
 
