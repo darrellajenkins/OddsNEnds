@@ -1,0 +1,14 @@
+# Reads data from txt file, removes white space.  Creates a set to remove dups, then converts to a list for sorting.
+
+unique_ids = set()
+with open('ids.txt') as f:
+    for line in f:
+        id = line.strip() 
+        unique_ids.add(id)
+
+unqlist = list(unique_ids)
+unqlist.sort()
+
+print(f"There are {len(unqlist)} unique IDs and they are: \n")
+for num, identifier in enumerate(unqlist, start=1):
+    print(f"\t{num}.\tID:  {identifier}")
