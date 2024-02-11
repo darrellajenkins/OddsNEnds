@@ -1,0 +1,38 @@
+class User:
+
+        def __init__(self, idnum, first_name, last_name, email, sub_type, location, pmt_method):
+            self.idnum = idnum
+            self.first_name = first_name
+            self.last_name = last_name
+            self.email = email
+            self.sub_type = sub_type
+            self.location = location
+            self.pmt_method = pmt_method
+
+        def describe_user(self):
+            user = [ self.idnum, self.first_name, self.last_name, self.email , self.sub_type, self.location, self.pmt_method]
+            print(f"Here is the client summary for \033[1mUser No. {self.idnum}:\033[0m")
+            for u in user[1:]:
+                print(f"\t{u}")
+
+        def greet_user(self):
+            print(f"Hello {self.first_name} {self.last_name}. Welcome to the \033[35mTeam!\033[39m")
+
+
+one = User(100, 'Thomas', 'Ba', 'b@gmail.com', 'annual', 'Buffalo, NY', 'Visa')
+two = User(101, 'Samatha', 'Ha', 's@gmail.com', 'annual', 'Miami, FL', 'Venmo')
+three = User(102, 'Linda', 'Win', 'l@hotmail.com', 'non-subscriber', 'Buffalo, NY', 'MC')
+four = User(103, 'Sanderson', 'Ul', 'sa@aol.com', 'annual', 'Buffalo, NY', 'Amex')
+
+one.describe_user()
+one.greet_user()
+print("\n")
+two.describe_user()
+two.greet_user()
+print("\n")
+three.describe_user()
+three.greet_user()
+print("\n")
+four.describe_user()
+four.greet_user()
+print("\n")
