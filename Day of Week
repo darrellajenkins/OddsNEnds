@@ -1,0 +1,33 @@
+# Given start on particular day of week, given length of a trip, determines day of week of the last day of the trip.
+
+# Version 1
+days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']  
+
+arrival = []
+day_index = 1 
+for _ in range(137):
+    arrival.append(days[day_index-1])
+    day_index += 1
+    if day_index > 7:
+        day_index = 1
+
+print(len(arrival)) 
+print(arrival[-1])
+
+# Version 2
+days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+
+arrival = []
+day_num = 1
+
+while len(arrival) < 137:
+    if day_num <= 7:
+        arrival.append(days[day_num - 1])
+    else: 
+        day_num = 1
+        arrival.append(days[0])
+
+    day_num += 1
+
+print(len(arrival))
+print(arrival[-1])
