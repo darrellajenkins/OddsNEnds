@@ -1,0 +1,13 @@
+"""Module 2.  Note that this class models after the one from mod1."""
+
+import mod1  # You must import mod1 because class Admin is models after a class in module mod1.
+
+class Admin(mod1.User):   # To work properly it cannot be <class Admin(User)> as that only works if both classes are in the same file.  It must be <class Admin(mod1.User)>
+    def __init__(self, idnum, first_name, last_name, email, sub_type, location, pmt_method):
+        super().__init__(idnum, first_name, last_name, email, sub_type, location, pmt_method)
+        self.privileges = ['Add post', 'Delete Post', 'Edit Post', 'Remove User', 'Instantiate User', 'Reset Password', 'Refer to Design']
+               
+    def display_privileges(self):
+        print(f"Welcome Admin {self.first_name}. Your privileges are: \n\t")
+        for pr, vs in enumerate(self.privileges, start=1):
+            print(f"\t{pr}. {vs}")
