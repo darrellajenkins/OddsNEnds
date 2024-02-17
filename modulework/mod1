@@ -1,0 +1,30 @@
+"""Module 1"""
+
+class User:
+    
+        def __init__(self, idnum, first_name, last_name, email, sub_type, location, pmt_method):
+            self.idnum = idnum
+            self.first_name = first_name
+            self.last_name = last_name
+            self.email = email
+            self.sub_type = sub_type
+            self.location = location
+            self.pmt_method = pmt_method
+            self.login_attempts = 0
+            
+        def describe_user(self):
+            user = [self.idnum, self.first_name, self.last_name, self.email , self.sub_type, self.location, self.pmt_method]
+            print(f"Here is the client summary for \033[1mUser No. {self.idnum}:\033[0m")
+            for u in user[1:]:
+                print(f"\t{u}")
+                
+        def greet_user(self):
+            print(f"Hello {self.first_name} {self.last_name}. Welcome to the \033[35mInpyosphere!\033[39m")
+    
+        def incre_logs(self):
+            '''Accumulates login attempts by 1 each time the user does not enter the correct credentials.'''
+            self.login_attempts += 1
+
+        def reset_logs(self):
+            '''Reset user login attempts to zero.'''
+            self.login_attempts = 0
