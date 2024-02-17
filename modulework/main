@@ -3,6 +3,6 @@
 import mod1
 import mod2
 
-myu = mod2.Admin(3000 'Rowan', 'Gradidwell', 'rowan@themail.com', 'annual', 'Miami, FL', 'Venmo')
+myu = mod2.Admin(3000, 'Rowan', 'Gradidwell', 'rowan@themail.com', 'annual', 'Miami, FL', 'Venmo')
 
 myu.display_privileges()
