@@ -1,0 +1,9 @@
+names = ['Christie', 'Katie', 'Michelle', 'Samantha', 'Elizabeth', 'Trece', 'Heather']
+print(f"The first one is: \033[1m{names[0]}\n")
+for name in names[1:]:
+    if name == names[-1]:
+        print("The last (but not least) one is:")
+        print(name)
+    else:
+        print("The next one is:")
+        print(name)
