@@ -1,0 +1,13 @@
+from pathlib import Path
+
+guests = Path('guest_book.txt')
+user_list = ''
+while True:
+    user = input("Hello New User, please enter your name or 'x' to exit: ")
+    if user == 'x':
+        break
+    print(f"\tThank you {user}.")
+    user_list += f"{user}\n"
+
+guests.write_text(user_list)
+
