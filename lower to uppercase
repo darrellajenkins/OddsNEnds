@@ -1,0 +1,16 @@
+# Old school conversion of lowercase to uppercase while leaving other characters alone.  Exercise 34 Python Al Sweigart Book.
+
+lower = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
+
+upper = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
+
+def getUppercase(text=""):
+    for letter in text:
+        if letter.isalpha() and letter not in upper:
+            index = lower.index(letter)
+            text = text.replace(letter, upper[index])
+    return text
+
+
+upper = getUppercase("python 2024!")
+print(upper)
