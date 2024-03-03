@@ -1,10 +1,11 @@
-# My code to remove duplicate numbers from a list.  In principle this can also be used for txt, csv, dict, or other data such as from web content.
+# My code to remove duplicate numbers from a list.  In principle this can also be used for txt, csv, dict, or other data.
 
 numlist = [12, 46, 41, 52, 89, 4, 81, 63, 22, 103, 215, 12, 312, 70, 12]
 for num in numlist:
     if numlist.count(num) > 1:
         numlist.remove(num)
 print(numlist)
+print()
 
 # Another way of removing list duplicates (dev 01/21/24).  This new way, unlike
 # the orig way, preserves the orig order of items in the list:
@@ -14,13 +15,29 @@ for e in coffee[::-1]:
         pos = len(coffee) - coffee[::-1].index(e) - 1
         del coffee[pos]
 print(coffee)
+print()
 
+# Here is another way to remove dups while preserving order (03/02/2024):
+from collections import OrderedDict
+a = ["1", "Donuts", 2, 2, "Frosting", 3, 3, "Sprinkles", "Sprinkles", 4, 4, 4, "Bavarian Cream"]
+print(list(OrderedDict.fromkeys(a)))
+print()
+
+# Of course the long way would be:
+container = []
+for grain in coffee:
+    if grain not in container:
+        container.append(grain)
+print(container)
+print()
+    
 # By far, the FASTEST way to remove duplicates (dev 01/21/24) from a list is to use a set, HOWEVER,
 # since it is a set its content will be created in a random order:
+print()
 espresso = [20, 24, 169, 934, 555, 443, 815, 865, 750, 517, 405, 904, 907, 520, 411, 20, 169, 555, 815, 750, 405, 907]
 espresso_set = set((espresso))
 print(espresso_set)
-# Afterwards you can convert to a list and then sort or order how you wish.
+print()
 
 # Another helpful tool is how to remove all occurrences of a value (dev 01/21/24) by using a while loop, 
 # But this can also be used to remove duplicates:
@@ -29,3 +46,4 @@ while 2 in numbers:
         numbers.remove(2)
 numbers.insert(0, 2)
 print(numbers)
+
