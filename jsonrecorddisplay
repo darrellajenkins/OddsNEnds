@@ -1,0 +1,44 @@
+from pathlib import Path
+import json
+
+# CC10e. Records dictionary in json file, retrieves it, greets with data.
+
+def get_stored_username(path):
+    """Get stored username if available."""
+    if path.exists():
+        contents = path.read_text()
+        profile = json.loads(contents)
+        return profile
+    else:
+        return None
+    
+
+def get_new_username(path):
+    """Prompt for a new username."""
+    username = input("What is your name? ")
+    food = input("What is your favorite food? ")
+    activity= input("What is a favorite activity of yours? ")
+    profile = {'username':username, 'favorite food':food, 'activity':activity}
+    contents = json.dumps(profile)
+    path.write_text(contents)
+    return profile
+    
+    
+def greet_user(name):
+    """Greet the user by name."""
+    path = Path(name)
+    profile = get_stored_username(path)
+    if profile:
+        username = profile["username"]
+    else:
+        profile = get_new_username(path)
+        username = profile["username"]
+    verify = input(f"(y or n) Is your username <{profile['username']}>? ")
+    if verify == 'y':
+        print(f"Welcome back {profile['username']}!")
+        print(f"Your favorite food is {profile['favorite food']} and you enjoy {profile['activity']}.")
+    else:
+        profile = get_new_username(path)
+        print(f"We'll remember you when you come back, {profile['username']}!")
+        
+greet_user('username.json')
