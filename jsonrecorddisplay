@@ -28,17 +28,17 @@ def greet_user(name):
     """Greet the user by name."""
     path = Path(name)
     profile = get_stored_username(path)
-    if profile:
-        username = profile["username"]
-    else:
-        profile = get_new_username(path)
-        username = profile["username"]
-    verify = input(f"(y or n) Is your username <{profile['username']}>? ")
-    if verify == 'y':
-        print(f"Welcome back {profile['username']}!")
-        print(f"Your favorite food is {profile['favorite food']} and you enjoy {profile['activity']}.")
-    else:
+    if not profile:
         profile = get_new_username(path)
         print(f"We'll remember you when you come back, {profile['username']}!")
+    elif profile:
+        username = profile["username"]
+        verify = input(f"(y or n) Is your username <{profile['username']}>? ")
+        if verify == 'y':
+            print(f"Welcome back {profile['username']}!")
+            print(f"Your favorite food is {profile['favorite food']} and you enjoy {profile['activity']}.")
+        else:
+            profile = get_new_username(path)
+            print(f"We'll remember you when you come back, {profile['username']}!")
         
 greet_user('username.json')
