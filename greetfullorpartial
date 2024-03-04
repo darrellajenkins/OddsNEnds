@@ -1,0 +1,30 @@
+# Handling full or partial names.
+
+def name3(first, last, middle=None):
+    """Greet with first name, first and last names, or first, last, and middle names."""
+    if middle:
+        full = f"{first} {middle} {last}"
+    else:
+        full = f"{first} {last}"
+    return full.title()
+
+middlename = ''
+while True:
+    print("Name?  Enter 'q' to quit or skip. ")
+    firstname = input("First name: ")
+    if firstname == 'q':
+        print("Hello and goodbye.")
+        break
+    lastname = input("Last name: ")
+    if lastname == 'q':
+        lastname = ""
+        print(f"Have a Pythonic Day {name3(firstname,lastname)[:-1]}!")
+        break
+    if lastname:
+        middlename = input("Middle name: ")
+        if middlename == 'q':
+            print(f"Have a Pythonic Day {name3(firstname,lastname)}!")
+            break
+        if middlename:
+            print(f"Have a Pythonic Day {name3(firstname,lastname,middlename)}!")
+            break
