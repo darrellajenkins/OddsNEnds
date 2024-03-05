@@ -1,0 +1,10 @@
+# Unpacking demo with printing variations.
+
+salaries = ('$180,000', '$172,000', '$192,000', '$272,000', '$325,000')
+u, w, m = 'US Bank', 'WA Trust', 'Microsoft'
+*stuff, Meta, Ideal = salaries
+print(salaries)
+print(f"Version 1: There were three okay money offers {stuff} by {u}, {w}, and {m} respectively.")
+print(f"Version 2: There were three okay money offers {*stuff,} by {u}, {w}, and {m} respectively.")
+print(f"Version 3: There were three okay money offers {', '.join(stuff)} by {u}, {w}, and {m} respectively.")
+print(f"But by far, the best offer of {Meta} came from Meta, although {Ideal} would have been ideal.")
