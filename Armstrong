@@ -1,0 +1,17 @@
+# Displays armstrong numbers between 1 and 5 million
+
+def is_armstrong(num: int) -> bool:
+    number = str(num)
+    check = [int(x) for x in number]
+    tot = 0
+    for n in check:
+        tot += n**len(check)
+    if tot == num:
+        return True
+    
+    return False
+
+
+for r in range(5_000_001):
+    if is_armstrong(r):
+        print(f"Number <{r}> is an Armstrong!")
