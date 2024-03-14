@@ -1,0 +1,15 @@
+import sympy
+from sympy.abc import pi
+from sympy import pi, pretty
+import math
+
+
+# How to print the pi symbol using standard function chr:
+print(f"The {chr(1087)} symbol represents {math.pi:.8f}")
+
+# The "prettier" output comes from the sympy library
+sympy.pprint(pi)
+
+
+pi_str = pretty(pi, use_unicode=True)
+print(f"The {pi_str} symbol is another way to represent {math.pi:.8f}")
