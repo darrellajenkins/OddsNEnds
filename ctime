@@ -1,0 +1,7 @@
+import time
+
+local = time.ctime()
+hour = int(local[-13:-11])
+minute = local[-10:-8]
+
+print(f"Its about {hour if int(minute) < 30 else hour + 1}:00")
