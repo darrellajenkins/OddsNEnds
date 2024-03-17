@@ -13,3 +13,4 @@ sympy.pprint(pi)
 
 pi_str = pretty(pi, use_unicode=True)
 print(f"The {pi_str} symbol is the best way to represent {math.pi:.8f}")
+print(f"One of the most famous math equations is: {pi_str}r{chr(0x00B2)}")
