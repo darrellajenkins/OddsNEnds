@@ -1,0 +1,18 @@
+# How to clean print list data that sits within a dictionary
+kanga = ['Winnie', 'Computer', 'Winter', 'Helicopter', 'Roulette']
+hand = {'Sky': kanga}
+print(hand)
+
+
+print("\nFirst method, printing directly from the list as specified by : <hand['Sky'], sep=', '>")
+print(*hand['Sky'], sep=", ")
+
+print("\nSecond method, prints the list by joining the parts of 'item'(list) as specified by : <print(', '.join(item))>")
+for item in hand.values():
+    print(", ".join(item))
+    
+
+print("\nThird method, prints by using list comprehension: <print(', '.join([item for item in item]))>")
+for item in hand.values():
+    print(", ".join([item for item in item]))
+        
