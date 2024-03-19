@@ -1,0 +1,35 @@
+# My own data to dict converter
+
+def raw_data_to_dict(data):
+    '''Converts a string of back to back paired terms or a group of iterable pairs into a Python dictionary.'''
+    translator = {}
+    if isinstance(data, str):
+        transform = data.split() 
+        for item1, item2 in zip(transform[0::2], transform[1::2]):
+            pair1 = item1.replace(",", "")
+            base_word = pair1
+            pair2 = item2.replace(",", "")
+            companion_word = pair2
+            translator[base_word] = companion_word
+    else:
+        transform = list(data)
+        for item1, item2 in zip(transform[0::2], transform[1::2]):
+            base_word = item1
+            companion_word = item2
+            translator[base_word] = companion_word
+    return translator
+    return f"\nOriginal list made from the string: \n{transform}"
+
+pair_set = 'shirt, camesa, car, coche, beach, playa'
+print(raw_data_to_dict(pair_set))
+print((raw_data_to_dict(('cold', 'hot', 'mild', 'spicy', 'plain', 'extravagant'))))
+
+assert (raw_data_to_dict('thin, fat, short, tall, smooth, coarse,'))
+assert (raw_data_to_dict(['shirt', 'camesa', 'car', 'coche', 'beach', 'playa']))
+assert (raw_data_to_dict(('shirt', 'camesa', 'car', 'coche', 'beach', 'playa')))
+assert (raw_data_to_dict((('shirt', 'camesa'), ('car', 'coche'), ('beach', 'playa'))))
+
+# Demonstration that this works with txt files containing a pair of words on each line (csv)
+with open('progressives.txt', mode='r') as file:
+    prunes = file.read()
+print(raw_data_to_dict(prunes))
