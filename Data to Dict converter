@@ -18,7 +18,7 @@ def raw_data_to_dict(data):
             companion_word = item2
             translator[base_word] = companion_word
     return translator
-    return f"\nOriginal list made from the string: \n{transform}"
+
 
 pair_set = 'shirt, camesa, car, coche, beach, playa'
 print(raw_data_to_dict(pair_set))
