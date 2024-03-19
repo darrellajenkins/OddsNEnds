@@ -4,7 +4,7 @@ def raw_data_to_dict(data):
     '''Converts a string of back to back paired terms or a group of iterable pairs into a Python dictionary.'''
     translator = {}
     if isinstance(data, str):
-        transform = data.split() 
+        transform = data.split(",") 
         for item1, item2 in zip(transform[0::2], transform[1::2]):
             pair1 = item1.replace(",", "")
             base_word = pair1
