@@ -1,0 +1,10 @@
+# Printing data in specified groups:
+
+power = [('g','k','l','y'),('o','p','a','e'),('rr','ww','mm','cc')]
+for one in power:
+    print(*one)  
+
+delta = ['g','k','l','y','o','p','a','e','rr','ww','mm','cc']
+for r in range(0, len(delta), 4):
+    quad = delta[r:r+4]
+    print(*quad)
