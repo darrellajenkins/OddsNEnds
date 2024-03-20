@@ -1,31 +1,67 @@
-# My own data to dict converter
+# My own data to dict converter 03/20/2024
 
 def raw_data_to_dict(data):
-    '''Converts a string of back to back paired terms or a group of iterable pairs into a Python dictionary.'''
+    '''Converts a string of back-to-back paired terms or a group of iterable pairs into a Python dictionary.'''
     translator = {}
+
     if isinstance(data, str):
-        transform = data.split(",") 
-        for item1, item2 in zip(transform[0::2], transform[1::2]):
-            pair1 = item1.replace(",", "")
-            base_word = pair1
-            pair2 = item2.replace(",", "")
-            companion_word = pair2
-            translator[base_word] = companion_word
+        if "\n" in data:
+            transform = data.split("\n") #    
+            for item in transform:
+                pair = [p.strip('"') for p in item.split(",", 1)]
+                if len(pair) >= 2:
+                    key = pair[0].split()
+                    base_word = " ".join(key)
+                    companion_word = pair[1]
+                    translator[base_word] = companion_word
+        else:
+            transform = data.split(",")
+            for t in range(0, len(transform), 2):
+                key = transform[t].strip('"').split()
+                base_word = " ".join(key)
+                if t + 1 < len(transform):
+                    companion_word = transform[t + 1].strip('"')
+                    translator[base_word] = companion_word    
     else:
-        transform = list(data)
-        for item1, item2 in zip(transform[0::2], transform[1::2]):
-            base_word = item1
-            companion_word = item2
-            translator[base_word] = companion_word
+        for item in data:
+            if len(item) == 2:
+                item1, item2 = item
+                translator[str(item1).strip('"')] = str(item2).strip('"')
+            else:
+                transform = list(data)
+                for item1, item2 in zip(transform[0::2], transform[1::2]):
+                    base_word = item1.strip('"')
+                    companion_word = item2.strip('"')
+                    translator[base_word] = companion_word
+
     return translator
 
+# Example usage
+with open('menutest.txt', mode='r') as file:
+    skill = file.read()
+    print(raw_data_to_dict(skill))
 
-pair_set = 'shirt, camesa, car, coche, beach, playa'
-print(raw_data_to_dict(pair_set))
-print((raw_data_to_dict(('cold', 'hot', 'mild', 'spicy', 'plain', 'extravagant'))))
-print((raw_data_to_dict('hotdog special, 6, soda, 2' )))
-print((raw_data_to_dict(['italian sausage', 'cheese pizza', 'orange soda', 'french fries'])))
+with open('menu.txt', mode='r') as file:
+    skill = file.read()
+    print(raw_data_to_dict(skill))
+    
+data1 = 'thin, fat, short, tall, smooth, coarse,'
+data2 = ['shirt', 'camesa', 'car', 'coche', 'beach', 'playa']
+data3 = ('shirt', 'camesa', 'car', 'coche', 'beach', 'playa')
+data4 = (('shirt', 'camesa'), ('car', 'coche'), ('beach', 'playa'))
+data5 = 'hotdog, cheap, soda, cheaper'
+data6 = 'hotdog, 6, cream soda, 2, maple covered peanuts, 9'
+data7 = 'hotdog special, 6, soda, 2'
+data8 = ['italian sausage', 'cheese pizza', 'orange soda', 'french fries']
 
+print(raw_data_to_dict(data1))
+print(raw_data_to_dict(data2))
+print(raw_data_to_dict(data3))
+print(raw_data_to_dict(data4))
+print(raw_data_to_dict(data5))
+print(raw_data_to_dict(data6))
+print(raw_data_to_dict(data7))
+print(raw_data_to_dict(data8))
 
 assert (raw_data_to_dict('thin, fat, short, tall, smooth, coarse,'))
 assert (raw_data_to_dict(['shirt', 'camesa', 'car', 'coche', 'beach', 'playa']))
@@ -35,10 +71,22 @@ assert (raw_data_to_dict('hotdog, cheap, soda, cheaper' ))
 assert (raw_data_to_dict('hotdog, 6, soda, 2' ))
 assert (raw_data_to_dict('hotdog special, 6, soda, 2' ))
 assert (raw_data_to_dict(['italian sausage', 'cheese pizza', 'orange soda', 'french fries']))
-# formula to slice printed pairs = '"' + pair + '": ' + '"' + '"'
 
 
-# Demonstration that this works with txt files containing a pair of words on each line (csv)
+# Demonstration that this works with txt files containing a pair of words on each line
 with open('progressives.txt', mode='r') as file:
     prunes = file.read()
-print(raw_data_to_dict(prunes))
+    print(raw_data_to_dict(prunes))
+
+with open('garden.txt', mode='r') as file1:
+    seed = file1.read()
+    print(raw_data_to_dict(seed))
+
+with open('fruit.txt', mode='r') as file2:
+    skillet = file2.read()
+    print(raw_data_to_dict(skillet))
+
+# Also works with csv files
+with open('word pairs.csv', mode='r', encoding='utf-8-sig') as file3:
+    leaves = file3.read()
+    print(raw_data_to_dict(leaves))
