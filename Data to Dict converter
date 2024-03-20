@@ -1,4 +1,5 @@
 # My own data to dict converter 03/20/2024
+# Works with strings, iterables, txt and csv (use encoding='utf-8-sig') files.
 
 def raw_data_to_dict(data):
     '''Converts a string of back-to-back paired terms or a group of iterable pairs into a Python dictionary.'''
