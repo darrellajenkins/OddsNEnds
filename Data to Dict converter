@@ -3,7 +3,7 @@
 
 def raw_data_to_dict(data):
     '''Converts a string of back-to-back paired terms or a group of iterable pairs into a Python dictionary.'''
-    translator = {}
+    converter = {}
 
     if isinstance(data, str):
         if "\n" in data:
@@ -14,7 +14,7 @@ def raw_data_to_dict(data):
                     key = pair[0].split()
                     base_word = " ".join(key)
                     companion_word = pair[1]
-                    translator[base_word] = companion_word
+                    converter[base_word] = companion_word
         else:
             transform = data.split(",")
             for t in range(0, len(transform), 2):
@@ -22,20 +22,20 @@ def raw_data_to_dict(data):
                 base_word = " ".join(key)
                 if t + 1 < len(transform):
                     companion_word = transform[t + 1].strip('"')
-                    translator[base_word] = companion_word    
+                    converter[base_word] = companion_word    
     else:
         for item in data:
             if len(item) == 2:
                 item1, item2 = item
-                translator[str(item1).strip('"')] = str(item2).strip('"')
+                converter[str(item1).strip('"')] = str(item2).strip('"')
             else:
                 transform = list(data)
                 for item1, item2 in zip(transform[0::2], transform[1::2]):
                     base_word = item1.strip('"')
                     companion_word = item2.strip('"')
-                    translator[base_word] = companion_word
+                    converter[base_word] = companion_word
 
-    return translator
+    return converter
 
 # Example usage
 with open('menutest.txt', mode='r') as file:
