@@ -1,0 +1,18 @@
+delta = [1,2,'3','a']
+
+for d in delta:
+    index = delta.index(d)
+    content = delta[index]
+    print(f"The index number is {index} and the value is {content}.")
+print()
+
+gamma = [4,8,'8','e', 'peppermint']
+x = 1
+for g in gamma:
+    index = gamma.index(g)
+    content = gamma[index]
+    if isinstance(g, (int, float)):
+        print("You're doing fine")
+    elif not isinstance(g, (int, float)):
+        print(f"The index number is {index} and the value is {content}.")
+        print(f"\033[31m\tThere should not be any strings in this file.\033[39m")
