@@ -1,0 +1,17 @@
+# Zip Magic
+
+cols = ['Name','Tenure', 'Age', 'Gender']
+
+rows = [('Jonathan Sawyer', 'Tenured', 37, 'M'),
+('Susana Cayhill', 'Tenure Track', 28, 'F'),
+('Ellen Smith', 'Tenured', 48, 'F'),
+('Mary Martin', 'No', 29, 'F'),
+('Isabel Wine', 'No', 34, 'F'),
+('Crystal Koney', 'Tenure Track', 36, 'F'),
+('Frank Baymen', 'Tenured', 44, 'M'),
+('Noel Brennan', 'Tenured', 51, 'M'),
+('Theresa Tyman', 'No', 42, 'F'),
+('Johnson Jones', 'Tenure Track', 38, 'M')]
+
+faculty = [dict(zip(cols, staff)) for staff in rows]
+for person in faculty: print(person)
