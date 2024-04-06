@@ -1,5 +1,25 @@
 import webbrowser
+import time
 
-query = input("Input your query: ")
 
-webbrowser.open("https://google.com/search?q=%s" % query)
+class Science:
+    def __init__(self, webpage, name):
+        self.webpage = webpage
+        self.name = name
+
+    def getpage(self):
+        """Open the webpage specified in the created instance of the class Science object."""
+        webbrowser.open(self.webpage)
+        return self.webpage
+   
+    def searchit():
+        """Begin a search engine query for science websites."""
+        query = input("Input your query: ")
+        webbrowser.open("https://google.com/search?q=%s" % query)
+
+
+si = Science("https://si.edu", 'Smithsonian')
+
+print(f"Let's begin by opening the {si.name} website at the following web address: {si.webpage}!")
+time.sleep(5)
+si.getpage()
