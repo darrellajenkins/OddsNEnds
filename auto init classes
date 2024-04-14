@@ -1,0 +1,33 @@
+class Robot:
+    def __init__(self, name, pounds):
+        self.name = name
+        self.type = 'Customized Borg'
+        self.pounds = pounds
+
+    def hello(self):
+        print(f"Hi, I am {self.name}.")
+        
+    def role(self):
+        if self.name == 'Patty':
+            print("I'm a Rock Star!")
+        elif self.name == 'Thyme':
+            print("I'm a Top Chef!")
+        elif self.name == 'Samantha':
+            print("I'm a Scientist!")
+        
+        
+data = [('Patty', 110), ('Thyme', 148), ('Samantha', 124)]
+patty, thyme, samantha = [Robot(name, pounds) for name, pounds in data]
+
+for robot in [patty, thyme, samantha]:
+    robot.hello()
+    print(f"Designation: {robot.name}")
+    print(f"Type: {robot.type}")
+    print(f"Weight: {robot.pounds}")
+    robot.role()
+    print()
+
+print(patty.name, patty.pounds)
+print(thyme.name, thyme.pounds)
+print(samantha.name, samantha.pounds)
+samantha.role()
