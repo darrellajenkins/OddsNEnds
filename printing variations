@@ -1,0 +1,31 @@
+rawhide = ['hat','men','cowboys','gunslingers','iron', 'gold','ranch']
+
+for raw in reversed(rawhide):
+    print(raw)
+for raw in reversed(rawhide):
+    print(raw, end=" ")
+    
+print("\n")
+print(", ".join(rawhide[::-1]))
+print(*(rawhide[::-1]))
+print("\n".join(rawhide[::-1]))
+print(*rawhide, sep=", ")
+
+favs = {
+                'Jen': ['a', 'b', 'c'],
+                'Mike': ['d', 'e', 'f'],
+                'Jack': ['g', 'h', 'i'],
+                }
+
+for key, value in favs.items():
+    print(f"{key}'s favorite letters are:")
+    print(*value, sep=", ")
+    
+salaries = ('$80,000', '$72,000', '$92,000', '$172,000', '$225,000')
+u, w, m = 'US Bank', 'WA Trust', 'Microsoft'
+*stuff, Meta, Ideal = salaries
+print(salaries)
+print(f"There were three okay money offers {stuff} by {u}, {w}, and {m} respectively.")
+print(f"But by far, the best offer of {Meta} came from Meta, although {Ideal} would have been ideal.")
+print(f"Version 2: There were three okay money offers {*stuff,} by {u}, {w}, and {m} respectively.")
+print(f"Version 3: There were three okay money offers {', '.join(stuff)} by {u}, {w}, and {m} respectively.")
