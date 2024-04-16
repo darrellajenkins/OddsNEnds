@@ -1,0 +1,36 @@
+class Spanish:
+   
+    def __init__(self, words):
+        self.words = words
+       
+    def transl(self):
+        data = [['playa', 'coche', 'agua'], ['arbol', 'azul', 'comer'], ['hablar', 'sentir', 'vivir']]
+        if self.words == data[0]:
+            print("English translation: beach, car, water.")
+        if self.words == data[1]:
+            print("English translation: tree, blue, eat.")
+        if self.words == data[2]:
+            print("English translation: speak, feel, live.")
+           
+data = [['playa', 'coche', 'agua'], ['arbol', 'azul', 'comer'], ['hablar', 'sentir', 'vivir']]
+
+office, fun, home = [Spanish(series) for series in data]
+
+for num, group in enumerate(data, start=1):
+    print(f"{num}. ", end='')
+    print(*group, sep=', ')
+
+print()
+ques = input("Which set of words would you like me to translate, 1, 2, or 3? ")
+if ques == '1':
+    print(f"Spanish: ", end='')
+    print(*office.words, sep=', ', end='.\n')
+    office.transl()
+elif ques == '2':
+    print(f"Spanish: ", end='')
+    print(*fun.words, sep=', ', end='.\n')
+    fun.transl()
+elif ques == '3':
+    print(f"Spanish: ", end='')
+    print(*home.words, sep=', ', end='.\n')
+    home.transl()
