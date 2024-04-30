@@ -1,0 +1,22 @@
+# dprint is nicely printed data with just basic Python core symantics
+# aka Pandas print mimic without column header
+
+book = {'Name':['Susan', 'Katie', 'Ryan', 'Bruce', 'Helena'],
+        'Phone Number': ['360-450-1110', '360-450-1111', '360-450-1112', '360-450-1113', '360-450-1114']
+        }
+
+# VERSION A
+c = 1
+for x in range(len(book['Name'])):
+    print(f"{c}. Name = {book['Name'][x].ljust(10)}\t Phone = {book['Phone Number'][x].rjust(10)}")
+    c += 1
+
+print(f"\n\n")
+
+# VERSION B
+print(f'\033[1m{"Name".rjust(7)}\t{"Phone Number".rjust(21)}\033[2m')
+d = 1
+for y in range(len(book['Name'])):
+    print(f"{d}. {book['Name'][y].ljust(10)}\t {book['Phone Number'][y].rjust(10)}")
+    d += 1
+  
