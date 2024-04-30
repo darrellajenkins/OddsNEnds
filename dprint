@@ -1,5 +1,5 @@
 # dprint is nicely printed data with just basic Python core symantics
-# aka Pandas print mimic without column header
+# aka Pandas print mimic with and without column headers
 
 book = {'Name':['Susan', 'Katie', 'Ryan', 'Bruce', 'Helena'],
         'Phone Number': ['360-450-1110', '360-450-1111', '360-450-1112', '360-450-1113', '360-450-1114']
