@@ -1,0 +1,22 @@
+import collections
+
+
+salaries = ('$80,000', '$72,000', '$92,000', '$172,000', '$225,000')
+u, w, m = 'US Bank', 'WA Trust', 'Microsoft'
+*stuff, Meta, Ideal = salaries
+print(salaries)
+print(f"Version 1: There were three okay money offers {stuff} by {u}, {w}, and {m} respectively.")
+print(f"Version 2: There were three okay money offers {*stuff,} by {u}, {w}, and {m} respectively.")
+print(f"Version 3: There were three okay money offers {', '.join(stuff)} by {u}, {w}, and {m} respectively.")
+print(f"But by far, the best offer of {Meta} came from Meta, although {Ideal} would have been ideal.")
+
+
+print()
+Book = collections.namedtuple("Book", 'Title Author Pages ISBN')
+eric = Book("Python Crash Course", "Eric Matthes", 552, "978-1718502703")
+print(eric._fields)
+print(eric)
+print(eric.Author)
+print(eric.Pages)
+print(eric.ISBN)
+print('The title of ISBN', eric[-1], 'is', eric.Title, end='.')
