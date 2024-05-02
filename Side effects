@@ -39,7 +39,7 @@ print(f"Compare q ({id(q)}) to bite ({puddy[1]})")
 aka - call by sharing."""
 
 
-# But here is remains unchanged if you pass a copy:
+# But here it remains unchanged if you pass a copy:
 def three(greats):
     greats[0] = "Mendelssohn"
     return greats
@@ -48,6 +48,18 @@ pianists = ["Schumann", "Brahms", "Chopin"]
 
 print(favorites :=  three(pianists[:]))
 print(pianists)
+
+
+# Caveats:  the side effect does not show up if you completely replace the
+# mutuable data with new data.
+def sample(cat):
+    cat = [1,2,7809654]
+    return cat
+    
+c = [1,2,7]
+hat = sample(c)
+print(hat)
+print(c)
 
 
 # The following side effect reminds us to use immutable data as default parameters or to set parameter data
