@@ -97,3 +97,15 @@ def sample():
 print(sample())
 
 print(c)
+
+
+def good(g):
+    g = g + 288
+    return g
+    
+g = 44
+
+d = good(88)
+print(d)
+
+print(g)
