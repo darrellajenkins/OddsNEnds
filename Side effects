@@ -73,3 +73,15 @@ def g(a=None):
 g()
 g()
 g()
+
+
+# Do not confuse the above side effects with:
+c = "What's up doc?"
+
+def sample():
+    c = 'What happened?'
+    return c
+    
+print(sample())
+
+print(c)
