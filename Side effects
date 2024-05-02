@@ -1,0 +1,75 @@
+# Side effects!
+
+"""If you feed a function data that is outside its scope but you alter that data (mutable data), the
+original data will also be altered outside of the function, unless you make a copy."""
+
+def fig(st):
+    st[0] = 42
+    st += [5,6,7,8,9]
+    return st
+
+numbers = [1,2,3,4]
+
+p = fig(numbers)
+print(p)
+print(numbers)
+
+
+# Hard to believe?  Here's another example:
+def group(folks):
+    folks[0] = "Felix"
+    return folks
+
+romantics = ["Robert", "Johannes", "Frederic"]
+
+print(composers :=  group(romantics))
+print(romantics)
+
+
+# Why does this behave so?  Side effects!
+def goo(apple,bite):
+    return id(apple), id(bite)
+
+p = 1
+q = [1,2,3]
+puddy = goo(p, q)
+print(f"Compare p ({id(p)}) to apple ({puddy[0]})")
+print(f"Compare q ({id(q)}) to bite ({puddy[1]})")
+"""Review the results of the comparison.  You'll see that they are equal - references to the same instances.
+aka - call by sharing."""
+
+
+# But here is remains unchanged if you pass a copy:
+def three(greats):
+    greats[0] = "Mendelssohn"
+    return greats
+
+pianists = ["Schumann", "Brahms", "Chopin"]
+
+print(favorites :=  three(pianists[:]))
+print(pianists)
+
+
+# The following side effect reminds us to use immutable data as default parameters or to set parameter data
+# defaults to None or "".
+def f(a=[1,2,3]):
+    a += [4,5]
+    print(a)
+    
+f()
+f()
+f()
+f()
+f()
+
+
+# A solution is to use the following pattern:
+def g(a=None):
+    if a is None:
+        a = [1,2,3]
+        a += [4,5]
+        print(a)
+        
+g()
+g()
+g()
