@@ -20,3 +20,14 @@ print(eric.Author)
 print(eric.Pages)
 print(eric.ISBN)
 print('The title of ISBN', eric[-1], 'is', eric.Title, end='.')
+
+
+fish = {'sole': '10, 'trout': 15, 'salmon': 20, 'talapia': 10, 'redfish': 12}
+print('\033[1mMENU\n\033[2m'.center(35))
+for i, (x, y) in enumerate(fish.items(), start=1): # parenthesis around x,y is required
+print(f"{i}. {x.title()}\t${y:.2f}")
+
+# A better way: with just x, y(x=index, y=dict tuple). Split the tuple by slice y[0], y[1].
+meat = {'chicken': 12, 'ribs': 15, 'ribeye': 20, 'talapia': 10, 'lamb': 15}
+print('\033[1mMENU\n\033[2m'.center(35))
+for x, y in enumerate(meat.items(), start=1): print(f"{x}. {y[0].title()}\t${y[1]:.2f}")
