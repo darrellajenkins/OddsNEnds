@@ -31,3 +31,11 @@ print(f"{i}. {x.title()}\t${y:.2f}")
 meat = {'chicken': 12, 'ribs': 15, 'ribeye': 20, 'talapia': 10, 'lamb': 15}
 print('\033[1mMENU\n\033[2m'.center(35))
 for x, y in enumerate(meat.items(), start=1): print(f"{x}. {y[0].title()}\t${y[1]:.2f}")
+
+karen = ('singer', 'awesome', 35, 'close to you')
+karen_occup, karen_rating, karen_age, karen_example = karen
+print(karen)
+print(karen_age)
+print(karen[1])
+print(karen_example)
+
