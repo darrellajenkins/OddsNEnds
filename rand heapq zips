@@ -18,7 +18,7 @@ names = set(('Fluffkins', 'Biscuit', 'Zigzag', 'Wooferson', 'Nacho', 'Gizmo', 'B
          'Munchkin', 'Zorro', 'Wrinkles', 'Nutmeg', 'Gizmodic', 'Buttercup', 'Muffinhead',
          'Zazu', 'Wrench', 'Nutella', 'Gizmatic', 'Butterfingers', 'Muffintop', 'Zaboo',
          'Wrumples', 'Nutkin', 'Gizmotron', 'Butterstuff', 'Zazzy', 'Wuffles', 'Nutrageous',
-         'Gizmonoid', 'Butterworth', 'Muffintush', 'Wuggle', 'Nutster', 'Gizmonica', 'Buttertart',
+         'Gizmonoid', 'Butterworth', 'Muffintush', 'Wugglet', 'Nutster', 'Gizmonica', 'Buttertart',
          'Zbee', 'Wuggles', 'Nutstravaganza', 'Gizbot', 'Butterbear', 'Zeeble', 'Wuggy', 'Nutzoid',
          'Gizmoppet', 'Butterbloop', 'Zeeker', 'Wuglet', 'Nutzzzy', 'Gizmosaurus', 'Butterboom',
          'Zeenie', 'Wugsly', 'Nutzywig', 'Gizmotronic', 'Butterbubble', 'Zeenie', 'Snickerpoo',
@@ -30,7 +30,7 @@ names = set(('Fluffkins', 'Biscuit', 'Zigzag', 'Wooferson', 'Nacho', 'Gizmo', 'B
 
 servers_nonorder = list(zip(names, server_times))
 servers_sort = sorted(servers_nonorder)
-print(f"\033[1mHere are our {len(servers_sort)} servers sorted by average milisecond processing time per terabyte: \033[0m")
+print(f"\033[1mHere are our {len(servers_sort)} servers sorted by average milisecond processing time per 10 gigabytes: \033[0m")
 print(servers_sort)
 print("\n".join(f"{s}.\t{d[0]}, {d[1]}" for s, d in enumerate(servers_sort, start=1)))
 
