@@ -1,0 +1,36 @@
+from itertools import batched as bch
+from operator import itemgetter as iget
+
+
+cols = ['Name', 'Age', 'City', 'Grade']
+
+devs = ['Scott', 34, 'Houston', 'B', 'Sullivan', 23, 'Houston', 'A', 'Marge', 45, 'Austin','C', 'Howey', 39, 'Chicago', 'B',
+        'Suzzie', 33, 'San Francisco', 'B', 'Dave', 41, 'Chicago', 'C', 'Sammie', 42, 'Rochester', 'A', 'Katelynn', 34, 'Rochester', 'B',
+        'Tamika', 32, 'San Francisco', 'A', 'Caity', 28, 'San Francisco', 'C'
+        ]
+
+grouped_devs = list(bch(devs, 4))
+print(grouped_devs)
+print()
+
+devs_by_age = sorted(grouped_devs, key=iget(1))
+print(f"\033[1mTuples sorted by Age:\033[0m")
+for person in devs_by_age:
+    print(person)
+print()
+
+harry = [dict(zip(cols, info)) for info in grouped_devs]
+print(f"\033[1mUsing zip, we list each person as a dictionary with all attributes named:\033[0m")
+print(harry)
+print()
+
+harry_by_grade = sorted(harry, key=iget('Grade'))
+print(f"\033[1mSorted by Grade:\033[0m")
+for person in harry_by_grade:
+    print(person)
+print()
+
+harry_by_city = sorted(harry, key=iget('City', 'Grade'))
+print(f"\033[1mSorted by City and then by Grade:\033[0m")
+for person in harry_by_city:
+    print(person)
