@@ -1,0 +1,3 @@
+Chocolate, 10
+Milk Shake, 8
+Jelly Beans, 7
