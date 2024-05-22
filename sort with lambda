@@ -1,0 +1,28 @@
+# sort works for lists of tuples but sorted works for tuples of tuples and lists of tuples
+
+metals = [('Mars', 0.90), ('Mercury', .08),  ('Earth', 1), ('Venus', 0.70), ('Jupiter', 330)]
+metals.sort()  # Default is the first part of each tuple
+print(metals)
+
+planets = [('Mars', 0.90), ('Mercury', .08),  ('Earth', 1), ('Venus', 0.70), ('Jupiter', 330)]
+size = lambda planets: planets[1]
+planets.sort(key=size)
+print(planets)
+
+data = (4,7,1,9,2,5,7,6)  # A tuple
+alpha_data = sorted(data)  # when sorted becomes a sorted list
+print(alpha_data)
+
+food = [('merlot', 9.99), ('goat cheese', 5.50), ('bacon', 6.99), ('figs', 4.99), ('basil', 2.99), ('pasta', 4.95), ('crab meat', 14.99)]
+refood = sorted(food)
+print(refood)
+
+food = [('merlot', 9.99), ('goat cheese', 5.50), ('bacon', 6.99), ('figs', 4.99), ('basil', 2.99), ('pasta', 4.95), ('crab meat', 14.99)]
+c = lambda f: f[1]
+refood = sorted(food, key=c)
+print(refood)
+
+appetizers = (('pinot noir', 9.99), ('potatoes', 2.50), ('raisin bread', 4.29), ('plums', 3.99), ('chips', 1.99), ('trout', 14.95), ('scallops', 20.99))
+type = lambda cost: cost[1]
+REappetizers = sorted(appetizers, key=type)
+print(REappetizers)
