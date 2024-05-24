@@ -1,36 +1,45 @@
 class Spanish:
-   
+   """A mini translation class.  The class is only instantiated and attributes initialized when the user responds to
+    the input question in the while loop with '1' or '2'."""
     def __init__(self, words):
         self.words = words
        
     def transl(self):
-        data = [['playa', 'coche', 'agua'], ['arbol', 'azul', 'comer'], ['hablar', 'sentir', 'vivir']]
-        if self.words == data[0]:
-            print("English translation: beach, car, water.")
-        if self.words == data[1]:
-            print("English translation: tree, blue, eat.")
-        if self.words == data[2]:
-            print("English translation: speak, feel, live.")
+        """English translation can be expanded to contain or reference a large dictionary in an array or csv file."""
+        if self.words == data_1:
+            print("\033[34mEnglish:\033[39m tree, beach, car.")
+        elif self.words == data_2:
+            print("\033[34mEnglish:\033[39m speak, feel, eat.")
            
-data = [['playa', 'coche', 'agua'], ['arbol', 'azul', 'comer'], ['hablar', 'sentir', 'vivir']]
-
-office, fun, home = [Spanish(series) for series in data]
+data = [['playa', 'coche', 'agua'], ['arbol', 'azul', 'comer'], ['hablar', 'sentir', 'vivir']] # Spanish database can be expanded to contain or
+# reference a large dictionary in an array or csv file.
 
 for num, group in enumerate(data, start=1):
     print(f"{num}. ", end='')
     print(*group, sep=', ')
 
 print()
-ques = input("Which set of words would you like me to translate, 1, 2, or 3? ")
-if ques == '1':
-    print(f"Spanish: ", end='')
-    print(*office.words, sep=', ', end='.\n')
-    office.transl()
-elif ques == '2':
-    print(f"Spanish: ", end='')
-    print(*fun.words, sep=', ', end='.\n')
-    fun.transl()
-elif ques == '3':
-    print(f"Spanish: ", end='')
-    print(*home.words, sep=', ', end='.\n')
-    home.transl()
+while True:
+    ques = input("Which set of words would you like to translate (1 or 2)? : ")
+    if ques == '1':
+        data_1 = ['arbol', 'playa', 'coche']
+        one = Spanish(data_1)
+        print(f"\n\033[31mSpanish: \033[39m", end="")
+        print(*one.words, sep=', ', end='.\n')
+        one.transl()
+        break
+
+    elif ques == '2':
+        data_1 = ['arbol', 'playa', 'coche']  # Required as transl() looks for it in the first if stmt, to say
+        # 'False' before going to elif stmt. Never sees data_1 in the <if stmt> when the user inputs '2'.
+        data_2 = ['hablar', 'sentir', 'comer']
+        two = Spanish(data_2)
+        print(f"\n\033[31mSpanish: ", end="")
+        print(*two.words, sep=', ', end='.\n')
+        two.transl()
+        break
+
+    else:
+        print("Please enter 1 or 2.")
+        continue
+
