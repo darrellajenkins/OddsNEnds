@@ -1,6 +1,6 @@
 class Wagon:
-    print("The Python Class Constructor has instantiated me as a new object. I am alive.")
-    print("For details about <me>, use repr(<instance name>).")
+    print("The Python Class Constructor has created a new class object.")
+    print(f"For details about a specific Instance of Class Wagon, use repr(<instance name>).\n")
     def __init__(self, instance, material, haul, name=None):
         self.instance = instance
         self.wheel = ''
@@ -8,13 +8,35 @@ class Wagon:
         self.name = name
         self.material = material
         self.haul = haul
-        print(f"My Instance name is: \033[30m{self.instance}.\033[39m")
-        print("All Class attributes have been initialized by the Initializer (__init__).")
+        print(f"A new instance has been instantiated. My Instance name is: \033[30m{self.instance}.\033[39m")
+        print(f"All Instance attributes have been initialized by the Initializer (__init__).\n")
     
     def __repr__(self):
         return f'Instance variable name: "{self.instance}" associated with Class {type(self).__name__} = <__main__.Wagon object at {hex(id(self))}>'
 
     def __str__(self):
         return f'Name: {self.instance.title()}. Made from: {self.material}. Used in the 19th century to haul: {self.haul}'
+    
+    def __eq__(self, other_instance):
+        """Used to compare equality of self.material with another_instance.material.  Automatic computation based on
+        CLI 'name == othername' or print('name == othername')."""
+        if self.material == other_instance.material:
+            result = ((self.material == other_instance.material), (f"{self.instance}'s {self.material} is the same as {other_instance.instance}'s {other_instance.material}."))
+            return result
+        elif self.material != other_instance.material:
+            result = ((self.material == other_instance.material), (f"{self.instance}'s {self.material} is not the same as {other_instance.instance}'s {other_instance.material}."))
+            return result
 
 west = Wagon('west', 'oak', 'gold')
+east = Wagon('east', 'walnut', 'gold')
+north = Wagon('north', 'walnut', 'gold')
+print(west == east)
+print(north == east)
+
+
+"""Footnote: In the __repr__ method, use self.__class__.__name__ to get the name of the class as a string.
+This is then included in the string returned by the __repr__ method, along with an instance's attribute.
+You can also use the type() function within the __repr__ method>>>
+return f"Instance of {self.__class__.__name__} with attribute: {self.attribute}" OR
+return f"Instance of {type(self).__name__} with attribte {self.attribute}" """
+
