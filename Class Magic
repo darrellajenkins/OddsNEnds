@@ -18,8 +18,8 @@ class Wagon:
         return f'Name: {self.instance.title()}. Made from: {self.material}. Used in the 19th century to haul: {self.haul}'
     
     def __eq__(self, other_instance):
-        """Used to compare equality of self.material with another_instance.material.  Automatic computation based on
-        CLI 'name == othername' or print('name == othername')."""
+        """Used to compare equality of self.material with other_instance.material.  Automatic computation based on
+        CLI 'name == other_instance' or print(name == other_instance)."""        
         if self.material == other_instance.material:
             result = ((self.material == other_instance.material), (f"{self.instance}'s {self.material} is the same as {other_instance.instance}'s {other_instance.material}."))
             return result
