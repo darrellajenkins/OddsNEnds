@@ -1,0 +1,20 @@
+class Wagon:
+    print("The Python Class Constructor has instantiated me as a new object. I am alive.")
+    print("For details about <me>, use repr(<instance name>).")
+    def __init__(self, instance, material, haul, name=None):
+        self.instance = instance
+        self.wheel = ''
+        self.maxspd = 145
+        self.name = name
+        self.material = material
+        self.haul = haul
+        print(f"My Instance name is: \033[30m{self.instance}.\033[39m")
+        print("All Class attributes have been initialized by the Initializer (__init__).")
+    
+    def __repr__(self):
+        return f'Instance variable name: "{self.instance}" associated with Class {type(self).__name__} = <__main__.Wagon object at {hex(id(self))}>'
+
+    def __str__(self):
+        return f'Name: {self.instance.title()}. Made from: {self.material}. Used in the 19th century to haul: {self.haul}'
+
+west = Wagon('west', 'oak', 'gold')
