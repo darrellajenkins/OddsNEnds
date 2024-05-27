@@ -38,5 +38,5 @@ print(north == east)
 This is then included in the string returned by the __repr__ method, along with an instance's attribute.
 You can also use the type() function within the __repr__ method>>>
 return f"Instance of {self.__class__.__name__} with attribute: {self.attribute}" OR
-return f"Instance of {type(self).__name__} with attribte {self.attribute}" """
+return f"Instance of {type(self).__name__} with attribute {self.attribute}" """
 
