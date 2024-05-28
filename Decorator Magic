@@ -96,6 +96,7 @@ def numbers():
         count.append(i * i)
     return count  # Third - you must also return the data here.
 
+
 print("Time: ")
 c = numbers()
 print(c)
