@@ -1,0 +1,38 @@
+print("You wish to run a function named <bingo>.")
+print("But beforehand you want a wrapper and its gooey center to run first.\n")
+
+
+def wrapper(function):
+    print("\033[34m\033[1mI am the wrapper.\033[39m\033[0m")
+    
+    def gooey_center():
+        print("\033[32m\033[1m\n\tI am the gooey center, inner function inside of the wrapper.")
+        print("\tI run after the wrapper has been removed.\033[39m\033[0m")
+        function()
+        
+    return gooey_center
+    
+
+@wrapper
+def bingo():
+    print("\nNow let us begin.")
+    
+    
+bingo()    
+print()
+
+print("*" * 20)
+print("An alternative is to assign the wrapper containing the base function to a variable.")
+print("< Do not use a decorator on the base function in code. >")
+print("Then you run the variable as a function. This produces the same result.\n")
+
+
+def alternative_wrapper(function):
+    print("\033[35m\033[1mI'm an old school wrapper.\033[39m\033[0m")
+
+    def alt_gooey_center():
+        print("\033[36m\033[1m\n\tI am the gooey center, inner function inside of the wrapper.")
+        print("\tI run after the wrapper has been removed.\033[39m\033[0m")
+        function()
+        
+    return alt_gooey_center
