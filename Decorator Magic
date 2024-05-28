@@ -36,3 +36,66 @@ def alternative_wrapper(function):
         function()
         
     return alt_gooey_center
+
+
+def bam():
+    print("\nNow we can roll!")
+
+
+b = alternative_wrapper(bam)
+b()
+
+
+import time
+from functools import wraps
+
+print()
+def timer(func):
+    def wrapper(*args, **kwargs):
+        start = time.perf_counter_ns()
+        result = func(*args, **kwargs)
+        delta = time.perf_counter_ns() - start
+        print(f'{func.__name__} took {delta:,.0f}ns')
+        return result
+    return wrapper
+
+@timer
+def factor(n):
+    result = 1
+    
+    for r in range(2, n + 1):
+        result *= r
+    return result
+
+print(factor(100))
+print()
+
+
+import time
+
+
+"""Your code will return None because the wrap function inside the decorator doesn't return the value returned by the decorated function (numbers()),
+unless you return the data in both the base and inner functions.  When you use a decorator, the decorated function's return value is essentially
+lost unless you explicitly return it from the wrapper function.  See below example with required entries to obtain return data."""
+current_time = time.time() 
+
+def speed_calc_decorator(function):
+    def wrap():
+        start = time.perf_counter()
+        result = function()  # To get the return you must save to a variable here.
+        end = time.perf_counter()
+        print(f"Total run time = {end - start}")
+        return result  # Next you must return the variable here too.
+    return wrap
+
+
+@speed_calc_decorator
+def numbers():
+    count = []
+    for i in range(1_000_000):
+        count.append(i * i)
+    return count  # Third - you must also return the data here.
+
+print("Time: ")
+c = numbers()
+print(c)
