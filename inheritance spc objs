@@ -1,0 +1,32 @@
+"""Part 2 - Inheritance special objects"""
+
+class Parents:
+    def __init__(self, mother, father):
+        self.mother = mother
+        self.father = father
+        self.x = 88
+
+    def Hi(self):
+        print(f"Look at what I can do!")
+        print(f"I can play all {self.x} keys of the piano!")
+
+    def __str__(self):
+        return f"Parents are: {self.mother} and {self.father}."
+
+
+class Kids(Parents):
+    def __init__(self, mother, father, child):
+        self.child = child
+        self.parents = Parents('Sue','George')  # This attribute instantiates an instance of the Parent Class.  A simple example of composition.
+        super().__init__(mother, father)
+
+    def __str__(self):
+        return f"Child = {self.child}."
+
+
+his = Kids('Sue', 'George', 'Anthony')
+print(his, his.parents)  # Prints the special str methods created in Class Parents and Class Kids.
+his.Hi()
+print()
+fam_tree = f'{his} {his.parents}'  # Here one special variable is assigned to encapsulate the use of two different Kids Class objects.
+print(fam_tree)
