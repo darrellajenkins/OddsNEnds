@@ -1,4 +1,4 @@
-"""Part 2 - Inheritance special objects"""
+"""Part 3 - Inheritance special objects"""
 
 class Parents:
     def __init__(self, mother, father):
