@@ -1,0 +1,33 @@
+import random
+
+cage = [1,2,3]
+balls = []
+draw = 1
+
+while True:
+    ready = input("Are you ready to draw? (Y or N): ")
+    if ready.lower() != "y":
+        continue
+    if ready.lower() == "y":
+        break
+        
+while True:
+
+    r1 = random.choice(cage)
+    balls.append(r1)
+
+    r2 = random.choice(cage)
+    balls.append(r2)
+
+    r3 = random.choice(cage)
+    balls.append(r3)
+    print(balls)
+
+    if r1 != r2 or r2 != r3:
+        balls.clear()
+        draw += 1
+        continue
+    if r1 == r2 == r3:
+        break
+    
+print(f"\033[34m\033[1mJACKPOT! IT ONLY TOOK {draw} TIME(S)!")
