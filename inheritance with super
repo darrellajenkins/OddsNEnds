@@ -1,0 +1,38 @@
+# Part 2 - A short demonstration of the requirements of inheritanc and super init.
+
+class US:
+    def __init__(self, tot_states, largest, smallest='Rhode Island'):
+        self.tot_states = tot_states
+        self.largest = largest
+        self.smallest = smallest
+        
+    def timedif(self):
+        return "There is a 3 hour time difference from coast to coast."
+    
+    def biggest(self):
+        return f"{self.largest.title()} is the largest state in the country."
+    
+
+class NY(US):
+    def __init__(self, tot_states, pnw, east):
+        super().__init__(tot_states, largest=None)
+        self.pnw = pnw
+        self.east = east
+    
+    def descrp(self):
+        return f"Out of the {self.tot} states, Alaska and Hawaii are not contiguous with the other 48 states."
+    
+    def pacific(self):
+        return f"The Pacific Northwest includes the beautiful states of {', and '.join(self.pnw)}."
+    
+    def ecoast(self):
+        return f"The East Coast has extrordinary beaches in the states of {', '.join(self.east)}."
+
+
+a = US(50, 'Texas')
+
+b = NY(50, ['Washington', 'Oregon'], ['North Carolina', 'South Carolina', 'and Florida'])
+print(b.east[2][4:])
+print(b.smallest)
+print(b.pacific())
+print(b.ecoast())
