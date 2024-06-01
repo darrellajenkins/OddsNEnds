@@ -1,0 +1,84 @@
+"""Part 1 - Inheritance without super init:
+Inheritance of methods does **not** necessarily require a `super().__init__()` call in the child class. Let me explain further:
+1. **Inheriting Methods**:
+   - When a child class inherits from a parent class, it automatically inherits all the methods (including the constructor) defined in the parent class.
+   - These inherited methods can be used directly in the child class without explicitly calling `super()`.
+
+2. **Method Resolution Order (MRO)**:
+   - Python follows a method resolution order (MRO) to determine which method to call when an attribute or method is accessed.
+   - The MRO ensures that methods are looked up in a consistent order (typically depth-first, left-to-right).
+   - The `super()` function is used to access the next method in the MRO.
+
+3. **When to Use `super()`**:
+   - You should use `super()` when you want to invoke the parent class's method explicitly.
+   - It's commonly used in cases where the child class overrides a method and wants to extend or modify the behavior of the parent's method.
+   - For constructors (`__init__`), it's essential to call `super().__init__()` if you want to execute the parent's constructor before any additional child-specific initialization.
+
+In the below example, the child class `Child` inherits the `some_method()` from the parent class `Base`. The constructor (`__init__`) of `Child` doesn't explicitly call `super().__init__()`, but it still inherits the behavior from `Base`.
+
+Remember that whether you need to use `super()` depends on your specific use case and how you want to customize the behavior of inherited methods.
+
+ALSO SEE PYTHON 3 COMPREHENSIVE GUIDE SECITON 19.3.1"""
+
+class Parents:
+    def __init__(self, mother, father):
+        self.mother = mother
+        self.father = father
+       
+    def Hi(self):
+        print(f"Look at what I can do!")
+       
+    def __str__(self):
+        return f"Parents are: {self.mother} and {self.father}."
+
+pp = Parents('Elaine', 'Edward')
+print(pp)
+
+
+class Kids(Parents):
+    def __init__(self, mother, father, child):
+        self.child = child
+      
+    def __str__(self):
+        return f"Child = {self.child}."
+   
+ee = Kids('Elaine', 'Edward', 'Enigma')
+print(ee)
+ee.Hi()
+
+print()
+class Base:
+    def __init__(self):
+        print("Base Initializer called")
+        self.x = 10
+
+    def some_method(self):
+        print("Base method called")
+
+class Child(Base):
+    def __init__(self):
+        # No super().__init__() call here so no access to self.x
+        print("Child Initializer called")
+
+# Creating an instance of Child
+child_instance = Child()
+child_instance.some_method()  # Calls Base's method
+
+# Another example of inheritance without super init.
+class US:
+    def __init__(self, tot_states, largest):
+        self.tot = tot_states
+        self.largest = largest
+        
+    def timedif(self):
+        return "There is a 3 hour time difference from coast to coast."
+    
+    def biggest(self):
+        return f"{self.largest.title()} is the largest state in the country."
+    
+class NY(US):
+       def descrp(self):
+        return f"Out of the {self.tot} states, Alaska and Hawaii are not contiguous with the other 48 states."
+    
+a = US(50, 'Texas')
+b = NY(50, 'Texas')
