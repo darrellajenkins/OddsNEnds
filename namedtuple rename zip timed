@@ -1,0 +1,50 @@
+import time
+import collections
+from collections import namedtuple
+
+
+def rename_plus_zip():
+    """Allows use AND printing of unconventional names by combining namedtuple with list, and zip."""
+    rate_list = ['Food Quality', 'Speed of Service', 'Ambience!']
+    Rate = namedtuple('Rate', rate_list, rename=True)
+    tedesco = Rate(8, 7, 7)
+    return f"{Rate.__name__}", zip(rate_list, tedesco)
+
+start = time.perf_counter()
+tedesco = rename_plus_zip()
+
+print(tedesco[0], end="\033[36m")
+for part in tedesco[1]:
+    print(part, end="")
+end = time.perf_counter()
+print("\nThe namedtuple with zip function \033[1m and WITH a for loop \033[0m\033[36mran for {:1.5f} seconds.\033[39m".format(end - start))
+print()
+
+def reg_named_tuple():
+    """Prints the namedtuple with no additional help but must use normal Python naming conventions."""
+    Rate = namedtuple('Rate', ['Food_Quality', 'Speed_of_Service', 'Ambience'])
+    tedesco = Rate(8, 7, 7)
+    return tedesco
+
+start_time = time.perf_counter()
+print(reg_named_tuple())
+end_time = time.perf_counter()
+print("The \033[3mnamedtuple function alone \033[0m \033[39mran for {:1.5f} seconds".format(end_time- start_time))
+print(f"\033[36m\033[1mThe difference in time is quite negligible.".rjust(85))
+print()
+
+
+def fast():
+    """Allows use AND printing of unconventional names by combining namedtuple with list, and zip.
+        It's even faster without the for loop if you do not need the print to be as pretty."""
+    categories = ['Food Quality', 'Speed of Service', 'Ambience!']
+    Rate = namedtuple('Rate', categories, rename=True)
+    tedesco = Rate(8, 7, 7)
+    return f"{Rate.__name__}", list(zip(categories, tedesco))
+
+start = time.perf_counter()
+tedesco = fast()
+print(f"\033[0m\033[32m{tedesco[0]}{tedesco[1]}")
+end = time.perf_counter()
+print("The namedtuple with zip function and \033[1mwithout a for loop \033[0m\033[32mran for {:1.5f} seconds.".format(end - start))
+print()
