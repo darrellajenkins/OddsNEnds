@@ -1,0 +1,36 @@
+# Sample custom error message for attempt to change immutable attributes.
+
+class ImmutablePersonError(Exception):
+    """Custom exception for ImmutablePerson class"""
+    pass
+
+
+class ImmutablePerson:
+    def __init__(self, name, age):
+        self._name = name
+        self._age = age
+
+    @property
+    def name(self):
+        return self._name
+
+    @name.setter
+    def name(self, value):
+        raise ImmutablePersonError("Changes to the attributes in this class are not allowed. The attributes are immutable. Please consult the developer.")
+
+    @property
+    def age(self):
+        return self._age
+
+    @age.setter
+    def age(self, value):
+        raise ImmutablePersonError("Changes to the attributes in this class are not allowed. The attributes are immutable. Please consult the developer.")
+
+    def __repr__(self):
+        return f"ImmutablePerson(name = '{self.name}', age = {self.age})"
+    
+
+person = ImmutablePerson("Alice", 25)
+print(person)  # Output: ImmutablePerson(name='Alice', age=25)
+
+person.name = "Susan"  # Raises ImmutablePersonError with the custom message
