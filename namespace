@@ -1,0 +1,22 @@
+from types import SimpleNamespace
+
+
+ns = SimpleNamespace(x='love', y='joy', z='peace', a='attraction', b='intelligence', c='aura')
+print(ns)
+print(ns.b)
+print()
+
+xo = dict(x='love', y='joy', z='peace', a='attraction', b='intelligence', c='aura')
+n = SimpleNamespace(**xo)
+print(xo)
+print(n)
+print(n.y)
+print(n.a)
+print(n.c)
+
+who = {'apple_pie': 5,
+       'pear_cobbler': 10,
+       'orange_slice': 15    
+    }
+what = SimpleNamespace(**who)
+print(what.orange_slice)
