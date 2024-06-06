@@ -5,10 +5,10 @@ a = ['os.path.join()', 'os.getcwd()', 'os.chdir()', 'os.path.abspath)', 'os.path
 print(r'\n')
 
 tsize = 0
-for filename in os.listdir('C:\\Users\\avirt\\Documents\\Darrell'):
-    if not os.path.isfile(os.path.join('C:\\Users\\avirt\\Documents\\Darrell', filename)):
+for filename in os.listdir('C:\\Users...'):
+    if not os.path.isfile(os.path.join('C:\\Users...', filename)):
         continue
-    tsize = tsize + os.path.getsize(os.path.join('C:\\Users\\avirt\\Documents\\Darrell', filename))
+    tsize = tsize + os.path.getsize(os.path.join('C:\\Users...', filename))
 print(f'{tsize:,.0f} bytes = 2GB')
     
 """Files have a name and a path.
