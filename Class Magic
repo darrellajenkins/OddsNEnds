@@ -1,3 +1,5 @@
+import time
+
 class Wagon:
     print("The Python Class Constructor has created a new class object.")
     print(f"For details about a specific Instance of Class Wagon, use repr(<instance name>).\n")
@@ -8,8 +10,11 @@ class Wagon:
         self.name = name
         self.material = material
         self.haul = haul
-        print(f"A new instance has been instantiated. My Instance name is: \033[30m{self.instance}.\033[39m")
-        print(f"All Instance attributes have been initialized by the Initializer (__init__).\n")
+        self.today = time.ctime()
+        self.date = self.today[0:-14]
+        self.year = self.today[-4:]
+        print(f"A new instance from the <{self.__class__.__name__}> Class has been instantiated on {self.date} {self.year} {time.strftime('%H:%M:%S')} Local Time.")
+        print(f"My Instance name is: \033[30m\033[1m'{self.instance}'.\033[39m\033[0m All Instance attributes have been initialized by the Initializer (__init__).\n")
     
     def __repr__(self):
         return f'Instance variable name: "{self.instance}" associated with Class {type(self).__name__} = <__main__.Wagon object at {hex(id(self))}>'
