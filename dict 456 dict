@@ -1,0 +1,29 @@
+import itertools
+import collections
+import string
+import time
+
+
+"""Creates over 456,000 dictionaries and stores them inside of a dictionary.  AVG TIME: 0.18 SEC"""
+start = time.perf_counter()
+
+letters = string.ascii_lowercase
+emeralds = collections.deque(''.join(p) for p in itertools.product(letters, repeat=4))
+"""Using a deque for the initial itertools makes it very slightly faster.  Also using list comprehension
+for the dictionaries is also slightly faster instead of the for loop."""
+
+elfstones = {gem: {} for gem in emeralds}
+
+#elfstones = {}
+
+#for gem in emeralds:
+    #elfstones[gem] = {}
+
+
+end = time.perf_counter()
+elapsed_time = end - start
+
+print(f"The program ran for {elapsed_time:.5f} seconds.\n")
+
+print(f'The program has created {len(emeralds):,.0f} individual dictionaries.\n')
+print(f'Here is a sample of the first 10:\n {list(elfstones.items())[0:10]}')
