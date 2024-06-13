@@ -31,9 +31,9 @@ print(f"Version 2: There were three okay money offers {*stuff,} by {u}, {w}, and
 print(f"Version 3: There were three okay money offers {', '.join(stuff)} by {u}, {w}, and {m} respectively.")
 
 print()
-sam = [7, 1, 3, 5, -12]
-print(f"Considering the list of numbers: {*sam,}.")
+s = [7, 1, 3, 5, -12]
+print(f"Considering the list of numbers: {*s,}.")
 print()
 
-sam = [7, 1, 3, 5, -12]
-print(f"Considering the list of numbers: {", ".join(str(num) for num in sam)}.")
+s = [7, 1, 3, 5, -12]
+print(f"Considering the list of numbers: {", ".join(str(num) for num in s)}.")
