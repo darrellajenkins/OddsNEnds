@@ -8,14 +8,14 @@ def wrapper(function):
     def gooey_center():
         print("\033[32m\033[1m\n\tI am the gooey center, inner function inside of the wrapper.")
         print("\tI run after the wrapper has been removed.\033[39m\033[0m")
-        function()
+        function()  # OKAY SINCE PRINT STMT IN BINGO BUT REALLY SHOULD SAY RETURN FUNCTION()...ALSO SEE NOTE BELOW
         
     return gooey_center
     
 
 @wrapper
 def bingo():
-    print("\nNow let us begin.")
+    print("\nI am the original <bingo> function. Now let us begin.")  # RIGHT NOW IT IS PRINTING BUT REALLY YOU SHOULD RETURN "TEXT"
     
     
 bingo()    
@@ -39,7 +39,7 @@ def alternative_wrapper(function):
 
 
 def bam():
-    print("\nNow we can roll!")
+    print("\nI am the original function. Now we can roll!")
 
 
 b = alternative_wrapper(bam)
