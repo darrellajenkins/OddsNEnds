@@ -1,0 +1,23 @@
+rows = [1, 2, 3, 4, 5, 6, 7, 8]
+cols_dict = {'a': 1, 'b': 2, 'c': 3, 'd': 4, 'e': 5, 'f': 6, 'g': 7, 'h': 8}
+
+
+def chess(a, n):
+    """Returns correct square color and chess notation for parameters: (letter, row number)."""
+    alpha = cols_dict[a]
+    if ((alpha - 1) + rows[n - 1]) % 2 == 0:
+        return "White", f"{a}{n}"
+    else:
+        return "Black", f"{a}{n}"
+
+
+print(chess('f', 6))
+
+assert chess("b", 1) == ("White", "b1")
+assert chess("d", 5) == ("White", "d5")
+assert chess("g", 6) == ("White", "g6")
+assert chess("c", 7) == ("Black", "c7")
+assert chess("e", 5) == ("Black", "e5")
+assert chess("h", 2) == ("Black", "h2")
+assert chess("a", 4) == ("White", "a4")
+assert chess("f", 3) == ("White", "f3")
