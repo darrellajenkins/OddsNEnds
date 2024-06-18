@@ -1,3 +1,6 @@
+import getpass
+
+
 class User:
     def __init__(self, idnum, first_name, last_name, email, pmt_method='VISA'):
         self.idnum = idnum
@@ -31,7 +34,7 @@ class Admin:
         counter = 1
         while True:
             userid = input("Enter the user id that needs to be unlocked: " )
-            id = input("Please enter your id number: ")
+            id = getpass.getpass("Please enter your id number: ")
             if id == '18@@@':
                 print(f"User {userid} has been unlocked and reset by Admin - {self.first_name} {self.last_name}.")
                 break
@@ -64,7 +67,7 @@ def admin_func():
     """Asks the Admin which function to execute.  If a valid function of the Admin class is entered, it is automatically executed.  Enter function based on the instance (admin) as: <admin unlock>.
         The program automatically replaces the space with a dot and adds the parenthesis to the end and executes the function."""
     if admin:
-        selection = input("Enter the function you wish to execute preceded by the word 'admin': ")
+        selection = input("Enter the function you wish to execute preceded by the word 'admin' and one space: ")
     return selection
     
     
@@ -73,4 +76,3 @@ admin = loginAdmin()
 func = str(admin_func()).replace(" ", ".")
 function = str(func + "()")
 eval(function)
-
