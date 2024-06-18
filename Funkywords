@@ -1,0 +1,58 @@
+import random
+from uuid import uuid4
+
+
+"""Funkywords Version 1.0; June 13, 2024.  Developed by Inpyosis LLC."""
+
+print("\033[34mWELCOME TO FUNKYWORDS!\033[39m")
+print("\033[3mThe\033[0m most easy to use password generator!  You will be able to remember your \033[3mFunkywords\033[0m and")
+print("it will be a more secure password.  Be sure to generate a new Funkyword for each program you use.\n")
+print("It is easier for hackers to break usual password formats as opposed to a <passphrase>.")
+
+
+def get_words():
+    goofy = input("\nPlease type your three (and only three) favorite goofy words, each separated only by a space: \n\t")
+    three = goofy.strip().split()
+    mix_three = random.sample(three, k=3)
+    return list(mix_three)
+
+
+def final_four():
+    xtra = str(uuid4())
+    punctuation = "!@#$%^&*<>=+"
+    puncs = random.sample(punctuation, k=2)
+    return "".join(str(x) for x in xtra[-2:]) + "".join(str(y) for y in puncs[:])
+
+
+qwirks = ['Kiss', 'Slap', 'Spit', 'Gulp', 'Jiggle', 'Squeeze', 'Squirt', 'Jump', 'Bounce', 'Wiggle', 'Zigzag',
+          'Chomp', 'Splash', 'Twirl', 'Wobble', 'Pop', 'Flap', 'Tickle', 'Dance', 'Gobble', 'Frolic', 'Swoop',
+          'Sunggle', 'Doodle', 'Gargle', 'Whisper', ]
+
+
+def intro_word(word_selection):
+    qwirky_word = random.choice(word_selection)
+    return qwirky_word
+
+
+def run_funkywords():
+    first_word = intro_word(qwirks)
+    user_words = get_words()
+    tail_end = final_four()
+    composite = f"{first_word} {user_words[0]} {user_words[1]} {user_words[2]}" + " " + tail_end
+
+    print("\nYour new password is the phrase below, including the space between each word. Note that the first word is capitalized.")
+    print("Be sure to memorize the final 4 random characters on the end.")
+    print('\t\t\t\033[35m', composite)
+
+
+run_funkywords()
+
+while True:
+    again = input(f"\n\033[39mWould you like another Funkyword? (Y/N): ")
+    if again == 'y'.lower():
+        run_funkywords()
+    if again != 'y':
+        break
+
+print("\033[34m\033[1m\nTHANK YOU FOR CHOOSING FUNKYWORDS!!\033[39m")
+input()
