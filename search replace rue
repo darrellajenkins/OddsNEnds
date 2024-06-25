@@ -1,0 +1,14 @@
+# Be sure to expand to include local files or inputted live text in addition to strings stored in variables.
+
+fundraiser = "The fundraiser will be held in New York, NY."
+welcome = "A warm welcome to new members: Samantha, Jonathan, and Rachel."
+text = eval(input("Which text would you like to search? "))
+search = input("Please enter the test to search for...")
+replc = input("Now enter the replacemnet text...")
+
+if text:
+    def schreplc(text, search, replc):
+        text = text.replace(search, replc)
+        return text
+new_text = schreplc(text, search, replc)
+print(new_text)
