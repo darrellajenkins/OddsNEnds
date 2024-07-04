@@ -1,0 +1,69 @@
+# itertools filterfalse versus regular filter
+
+import itertools
+
+a = ("Spring", [21.22, 30.66, 55.84, 447.99, 682.22])
+b = ("Humble", [229.64, 330.99, 55.84])
+
+spring = list(itertools.filterfalse(lambda x: x < 400, a[1]))  # filter out everything specified
+humble = list(itertools.filterfalse(lambda x: x < 400, b[1]))
+
+spring_len = len(spring)
+humble_len = len(humble)
+
+if spring_len <= 0:
+    print(f"The {a[0]} store did not sell any high-ticket items in the last quarter.")
+else:
+    print(f"The {a[0]} store sold {spring_len} high-ticket items in the last quarter.")
+
+if humble_len <= 0:
+    print(f"The {b[0]} store did not sell any high-ticket items in the last quarter.")
+else:
+    print(f"The {b[0]} store sold {humble_len} high-ticket items in the last quarter.")
+
+# Alternative using regular filter function:
+a = ("Spring", [21.22, 30.66, 55.84, 447.99, 682.22])
+b = ("Humble", [229.64, 330.99, 55.84])
+
+spring = list(filter(lambda x: x > 400, a[1]))  # filter out everything specified
+humble = list(filter(lambda x: x > 400, b[1]))
+
+spring_len = len(spring)
+humble_len = len(humble)
+
+if spring_len <= 0:
+    print(f"The {a[0]} store did not sell any high-ticket items in the last quarter.")
+else:
+    print(f"The {a[0]} store sold {spring_len} high-ticket items in the last quarter.")
+
+if humble_len <= 0:
+    print(f"The {b[0]} store did not sell any high-ticket items in the last quarter.")
+else:
+    print(f"The {b[0]} store sold {humble_len} high-ticket items in the last quarter.")
+
+
+"""Both filter() and itertools.filterfalse() are useful functions, but they serve slightly different purposes. Here's why you might choose one over the other:
+
+Readability and Intent:
+filter(lambda x: x > 400, ...) is more intuitive when you want to keep items that meet a condition.
+filterfalse(lambda x: x < 400, ...) is more intuitive when you want to remove items that meet a condition.
+
+Condition Complexity:
+If the condition is simple to express positively, use filter().
+If the condition is easier to express negatively, use filterfalse().
+
+Performance:
+There's generally no significant performance difference between the two.
+
+Consistency with other code:
+If your codebase already uses one style consistently, it might be better to stick with it.
+
+Logical Clarity:
+Sometimes, expressing a condition in its negative form can be clearer or more concise.
+
+In the above examples, filter(lambda x: x > 400, ...) is probably the more intuitive and readable choice because:
+The condition "high-ticket items" is naturally expressed as "greater than 400".
+It's slightly more concise (no need for the 'not' operation).
+It directly matches the logic you're trying to implement (keeping items over 400, not removing items under 400).
+
+Both approaches are valid and produce the same result. It's a matter of personal or team preference, and what makes the code's intent most clear in the specific context."""
