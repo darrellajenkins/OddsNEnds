@@ -1,0 +1,10 @@
+import time
+
+for i in range(101):
+    print(f"Loading: {i}%", end='\r')
+    time.sleep(0.1)
+
+time.sleep(1)
+print("\r\nDone!     ", end='\r\n')
+
+#print("\rDone! 100%     ", end='\r\n')  # Clear line, print message, then new line
