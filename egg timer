@@ -1,0 +1,16 @@
+import time
+
+def egg_timer(minutes):
+    """Egg timer that counts down minutes"""
+    seconds = minutes * 60
+    
+    while seconds > 0:
+        timer = f"{seconds//60:02d}:{seconds%60:02d}"
+        print(timer, end="\r")
+        time.sleep(1)
+        seconds -= 1
+        
+    print("Time's up!")
+
+minutes = int(input("Enter timer (minutes): "))
+egg_timer(minutes)
