@@ -1,7 +1,7 @@
 import time
 
 for i in range(101):
-    print(f"Loading: {i}%", end='\r')
+    print(f"Loading: {i}%", end='\r')  # carriage return (\r)
     time.sleep(0.1)
 
 time.sleep(1)
