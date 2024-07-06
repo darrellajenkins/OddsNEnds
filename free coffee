@@ -1,0 +1,26 @@
+"""Calculate cost of coffee purchases. 16//9 = 1; 16 & 9 = 7."""
+
+
+def coffee(base_price, num):
+    """Calulates total cost of a coffee considering that every 9th coffee is free."""
+    nine_price = 8 * base_price
+    unit = num // 9
+    remainder = num % 9
+    part_1 = nine_price * unit
+    part_2 = remainder * base_price
+    total = float(part_1 + part_2)
+    return total
+
+
+print(f"{coffee(2.50, 10):.2f}")
+
+p = 3.50
+if p:
+    assert coffee(p, 0) == 0
+    assert coffee(p, 1) == 1 * p
+    assert coffee(p, 2) == 2 * p
+    assert coffee(p, 9) == 8 * p
+    assert coffee(p, 18) == 16 * p
+    assert coffee(p, 19) == 17 * p
+    assert coffee(p, 30) == 27 * p
+    
