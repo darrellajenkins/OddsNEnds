@@ -1,4 +1,4 @@
-# Converts your local time into UTC time. Useful when using programs that output in UTC time and you need to convert your local time to compare apples to apples.
+# Converts your local time into UTC time. Useful when using programs that output in UTC time and you need to convert your local time.
 
 import datetime
 from datetime import timezone
