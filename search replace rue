@@ -3,8 +3,8 @@
 fundraiser = "The fundraiser will be held in New York, NY."
 welcome = "A warm welcome to new members: Samantha, Jonathan, and Rachel."
 text = eval(input("Which text would you like to search? "))
-search = input("Please enter the test to search for...")
-replc = input("Now enter the replacemnet text...")
+search = input("Please enter the text to search for...")
+replc = input("Now enter the replacement text...")
 
 if text:
     def schreplc(text, search, replc):
