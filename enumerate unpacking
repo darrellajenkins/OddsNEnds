@@ -1,0 +1,23 @@
+fish = {'sole': 10, 'trout': 15, 'salmon': 20, 'talapia': 10, 'redfish': 12,
+    }
+print('\033[1mMENU\n\033[2m'.center(35))
+for i, (x, y) in enumerate(fish.items(), start=1):  # parenthesis around x,y is required
+    print(f"{i}.  {x.title()}\t${y:.2f}")
+print()
+
+# Alternate way with just x, y(x=index, y=dict tuple). Split the tuple by slice y[0], y[1].
+meat = {'chicken': 12, 'ribs': 15, 'ribeye': 20, 'talapia': 10, 'lamb': 15,
+    }
+print('\033[1mMENU\n\033[2m'.center(35))
+for x, y in enumerate(meat.items(), start=1):
+    print(f"{x}.  {y[0].title()}\t${y[1]:.2f}")
+print()
+fam = ['Last Name: Stilton', 'Members:', *['Jonathan', 'Michelle', 'David'], 'Location: San Bernadino']
+for x in enumerate(fam, start=1):
+    print(*x)
+   
+family = ['Last Name: \tStilton', 'Members:', *['  Jonathan', '  Michelle', '  David'], 'Location:\tSan Bernadino']
+print()
+
+for num, info in enumerate(family, start=1):
+    print(num, info)
