@@ -100,3 +100,48 @@ def numbers():
 print("Time: ")
 c = numbers()
 print(c)
+
+
+def italic(func):
+	def wrapper():
+		return '<i>' + func() + '</i>'
+	return wrapper
+
+def strong(func):
+	def wrapper():
+		return '**' + func() + '**'
+	return wrapper
+
+@italic
+@strong
+def introduction():
+	return 'This is a basic program'
+
+print(introduction())
+
+def seastorm(function):
+    def wrapper():
+        a = []
+        b = ""
+        for r in range(5, 0, -1):
+            a.append(str(r))
+        for item in a:
+            b += (item + ' ...')
+        return function() + "\n\t" + b  # Here we can change the order...countdown could be first
+        # return b + "\n" + function()
+    return wrapper
+
+def volcano(function):
+    print("\033[34m\033[1mThe volcano blew!\033[39m\033[0m")  # Sound could be used here as the opening ***
+    def center():
+        a = "\033[32m\033[1m\n\tJourney to the Center of the Earth.\033[39m\033[0m"
+        return a + function() 
+    return center
+
+
+@seastorm
+@volcano
+def crater():
+    return "...Time for a hike through the crater."
+
+print(crater())
