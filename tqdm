@@ -1,0 +1,5 @@
+for _ in tqdm(range(0, 100), desc='Processing your payment. Please wait...', bar_format="{l_bar}{bar:50}", colour="green"):
+    time.sleep(0.08)
+time.sleep(0.55)
+print("\nYour credit card has been processed.     ")
+print(f"{blue}{bold}Thank you for your payment!{clr}")
