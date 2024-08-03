@@ -8,3 +8,26 @@ time.sleep(1)
 print("\r\nDone!     ", end='\r\n')
 
 #print("\rDone! 100%     ", end='\r\n')  # Clear line, print message, then new line
+
+# Alternate format if print does not display in your console:
+# Option 1
+for idx in range(10):
+    print('\r', idx, end='')
+
+for idx in range(10):
+    print("'\r{0}".format(idx), end='')
+
+# Option 2
+import sys
+import time
+
+def countdown(n):
+    for x in reversed(range(n)):
+        sys.stdout.write('\r' + str(x))
+        time.sleep(1)
+
+countdown(60)
+
+# Option 3
+print(..., flush=True)
+
