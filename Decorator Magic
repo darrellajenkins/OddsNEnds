@@ -145,3 +145,41 @@ def crater():
     return "...Time for a hike through the crater."
 
 print(crater())
+
+
+class CacheDecorator:
+    def __init__(self):
+        self.cache = {}
+        self.func = None
+        
+    def cached_func(self, *args):
+        if args not in self.cache:
+            self.cache[args] = self.func(*args)
+            print("Result calculated.")
+        else:
+            print("Result loaded.")
+        return self.cache[args]
+    
+    def __call__(self, func):
+        self.func = func
+        return self.cached_func
+
+
+def shares(*args):
+    results = {}
+    for n in args:
+        results[n] = n * 3
+    return results
+
+
+x = CacheDecorator()  # Since the class takes zero args, first instantiate the class plain - of course, use parentheses since this is a class.
+shares_cached = x(shares)   # Now create another variable assigned to the <x> instance which will "wrap" the expected <func> arg inside (passing the function to the decorator)
+print(shares_cached(25, 35, 45))  # Finally, call the method
+print()
+
+@CacheDecorator()  # BE SURE TO USE PARENTHESES because this is a class. If it were a function decorator we would not use parentheses.
+def match401k(n):
+    #results = {}
+    #for n in args:
+        #results[n] = n * 2
+    return n * 2
