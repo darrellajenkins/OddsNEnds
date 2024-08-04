@@ -20,3 +20,33 @@ who = {'apple_pie': 5,
     }
 what = SimpleNamespace(**who)
 print(what.orange_slice)
+
+# You can assign new variables.
+what.kiwi = 'green'
+
+# You can change existing values for variables.
+what.apple_pie = 'pear'
+print(what.kiwi, what.apple_pie)
+
+# You can convert a SimpleNamespace into a dictionary.
+tup = SimpleNamespace(visual = ('color', 'red'), taste = ('frosting', 'chocolate'), surprise = ('filling', 'rasberry'))
+print(tup.taste)
+tup_dict = vars(tup)  
+print(tup_dict)
+
+for key, value in tup_dict.items():
+    print(f'{key:10}{str(value):>35}')
+    
+print(f'The tup_dict is type: {type(tup_dict)}.')
+print()
+
+tw = SimpleNamespace(visual = ('color', 'red'), taste = ('frosting', 'chocolate'), surprise = ('filling', 'rasberry'), soccer={'score':11, 'crowd':15, 'cost':20})
+print(tw.taste)
+print(tw)
+print(tw.soccer['crowd'])
+
+myns = SimpleNamespace(**tw.soccer)
+print(myns)
+
+tw_dict = vars(tw)
+print(tw_dict)
