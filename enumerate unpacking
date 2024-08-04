@@ -8,7 +8,7 @@ print()
 # Alternate way with just x, y(x=index, y=dict tuple). Split the tuple by slice y[0], y[1].
 meat = {'chicken': 12, 'ribs': 15, 'ribeye': 20, 'talapia': 10, 'lamb': 15,
     }
-print('\033[1mMENU\n\033[2m'.center(35))
+print('\033[1mMENU\n\033[0m'.center(35))
 for x, y in enumerate(meat.items(), start=1):
     print(f"{x}.  {y[0].title()}\t${y[1]:.2f}")
 print()
