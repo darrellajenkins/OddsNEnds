@@ -7,8 +7,6 @@ with open('ids.txt') as f:
         unique_ids.add(id)
 
 unqlist = list(unique_ids)
-unqlist.sort()
-
 print(f"There are {len(unqlist)} unique IDs and they are: \n")
-for num, identifier in enumerate(unqlist, start=1):
+for num, identifier in enumerate(sorted(unqlist), start=1):
     print(f"\t{num}.\tID:  {identifier}")
