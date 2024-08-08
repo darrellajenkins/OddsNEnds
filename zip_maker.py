@@ -15,7 +15,6 @@ def create_zip(files, dest_direc_folder):  # You must create the directory folde
 
 
 if __name__ == '__main__':  # To test the function first within the project's directory.
-	create_zip(files=["goodie.txt", "blackholes.txt", "members.txt", "redhot.txt", "C:/Users/avirt/PycharmProjects/TODO APP/weather.csv"],
-			   dest_direc_folder="sam")
+	create_zip(files=["goodie.txt", "blackholes.txt", "members.txt", "redhot.txt"], dest_direc_folder="sam")
 # Files to be zipped, destination directory folder name you have chosen.
 # If using an absolute path reference, remember to change all "\" to "/".
