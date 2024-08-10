@@ -1,7 +1,7 @@
 def my_datetime():
     import time
     my_date = time.strftime('%A %B %d %Y')
-    my_time = time.strftime('%I:%M%p')
+    my_time = time.strftime('%I:%M:%S %p')
     return my_date, my_time
 
 d = my_datetime()
