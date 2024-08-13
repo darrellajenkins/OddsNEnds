@@ -8,14 +8,16 @@ Now...a whole new world begins to open up to us. Let's look at a few examples.""
 tired = ['sleep', 'tired', 'sluggish', 'rest', 'lazy', 'nap', 'couch', "don't care", 'snooze', "can't", 'snack', 'lack', 'too hard', 'negative']
 energy = ['yes', 'can', 'energy', 'work', 'hard work', 'goal', 'do it', 'mindset', 'excel', 'succeed', 'hope', 'hopeful']
 
-how = input("How feel you? ")
-how = how.split(" ")
-if any(word in how for word in tired):  # Any = 'If any slice in cake is equal to slice in the other cake.'
-	print("Avoid negativity.")
-if any(word in how for word in energy):
-	print("Excellent, your great attitude will take you to new heights!")
-else:
-	print("Okay")
+while True:
+    how = input("How feel you? ")
+    how = how.split(" ")
+    if any(word in how for word in tired):  # Any = 'If any slice in cake is equal to slice in the other cake.'
+        print("Avoid negativity.")
+    if any(word in how for word in energy):
+        print("Excellent, your great attitude will take you to new heights!")
+        break
+    else:
+        print("Okay")
 
 sel = input("Pick 3 numbers (separate each by one space): ").split(" ")
 sel = [int(x) for x in sel]
