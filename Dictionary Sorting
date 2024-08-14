@@ -1,7 +1,4 @@
-# You cannot sort a dictionary, but you CAN sort keys(), values(), or items() from a dictionary!:
-cartoon = {'Tom': 'Cat', 'Jerry': 'Mouse', 'Leo': 'Lion', 'Woody': 'Woodpecker'}
-for key in cartoon:  # same as "for key in cartoon.keys()"
-    print(key)
+# You cannot sort a dictionary, but you CAN sort keys(), values(), or items() from a dictionary!:cartoon = {'Tom': 'Cat', 'Jerry': 'Mouse', 'Leo': 'Lion', 'Woody': 'Woodpecker'}for key in cartoon:  # same as "for key in cartoon.keys()"    print(key)
 for key, value in cartoon.items():
     print(f"Introducing...{key} the {value}.")
 print("\n")
@@ -40,6 +37,11 @@ we = {'fun': 10, 'sports': 3, 'chef': 9, 'zebra': 1, 'train': 7}
 a = sorted(we.items(), key=lambda t: t[1])
 print(a)
 
-for k, v in sorted(we.items(), key=lambda t: t[1]):
-    print(k, v)
+cake = {'fun': 10, 'sports': 3, 'chef': 9, 'zebra': 1, 'train': 7}
+for k, v in sorted(cake.items(), key=lambda t: t[1]):
+    print(v, k)
+
+pie = {'fun': 10, 'sports': 3, 'chef': 9, 'zebra': 1, 'train': 7}
+b = dict(sorted((value, key) for (key, value) in pie.items()))
+print(b) # It also works without dict with just tuples.
 
