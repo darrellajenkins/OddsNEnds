@@ -33,3 +33,9 @@ for key, value in sorted(newcartoon.items()):
 print("\nIntroducing in alphabetical order: ")
 for key, value in sorted(newcartoon.items()):  # Now you can alpha sort and print by the new key which is the value you wanted to sort by in the first place.
     print(f"\033[32mOur famous {key}'s name is {value}!")
+
+
+we = {'fun': 10, 'sports': 3, 'chef': 9, 'zebra': 1, 'train': 7}
+a = sorted(we.items(), key=lambda t: t[1])
+print(a)
+
