@@ -45,3 +45,6 @@ pie = {'fun': 10, 'sports': 3, 'chef': 9, 'zebra': 1, 'train': 7}
 b = dict(sorted((value, key) for (key, value) in pie.items()))
 print(b) # It also works without dict with just tuples.
 
+curd = {'lemon': 10, 'vanilla': 3, 'blackberry': 9, 'white chocolate': 8, 'rasberry': 7}           
+c = sorted((value, key) for (key, value) in curd.items())
+print(c)
