@@ -1,50 +1,65 @@
-# You cannot sort a dictionary, but you CAN sort keys(), values(), or items() from a dictionary!:cartoon = {'Tom': 'Cat', 'Jerry': 'Mouse', 'Leo': 'Lion', 'Woody': 'Woodpecker'}for key in cartoon:  # same as "for key in cartoon.keys()"    print(key)
+# You can sort keys(), values(), or items() from a dictionary.
+cartoon = {'Tom': 'Cat', 'Jerry': 'Mouse', 'Leo': 'Lion', 'Woody': 'Woodpecker'}
 for key, value in cartoon.items():
-    print(f"Introducing...{key} the {value}.")
+	print(f"Introducing...{key} the {value}.")
 print("\n")
 
 charac = input("Which animal would you like to know the name of? ")
 for key, value in cartoon.items():  # Obtain the key of an item if you know the value:
-    if value == charac:
-        print(key)
-print("\n")
-    
+	if value == charac:
+		print(key)
+print()
+
 print(sorted(cartoon))  # Prints only KEYS in alpha order as a list
 for key in sorted(cartoon.keys()):  # Sorts by keys
-    print(f"\033[31mNow introducing in alphabetical order - {key} the {cartoon[key]}")  # Prints the key AND corresponding value in alpha ACCORDING TO THE KEY
-for name, title in sorted(cartoon.items()):  # Sorts by keys and values
-    print(f"\033[35m{name} - {title}")  # CODE READS EASIER HERE - print the key and corresponding value in alpha BUT THIS METHOD ALWAYS REVERTS
-    #  TO ALPHA SORTING BY THE KEY NAME INSTEAD OF VALUE NO MATTER WHAT ORDER YOU PUT IN THE PRINT STMT
+	print(f"\033[31mNow introducing in alphabetical order - {key} the {cartoon[key]}")
 
-for value in sorted(cartoon.values()):  # Sorts by values but you can only access the values
-    print(f"\033[32m{value}")  # Prints only VALUES in alpha because you CANNOT ACCESS THE KEYS WITH THIS METHOD...BUT THERE IS A WAY
+for name, title in sorted(cartoon.items(), key=lambda item: item[1]):
+	print(f"\033[35m{name} - {title}")
+
+for value in sorted(cartoon.values()):  # Sorts by values but you can only access the values.
+	print(f"\033[32m{value}")  # Prints only VALUES because you CANNOT ACCESS THE KEYS WITH THIS METHOD.
 print("\n")
 
-#  SORT A DICT BY VALUES INSTEAD OF KEYS AND ACCESS BOTH VALUE AND CORRESPONDING KEY SORTED BY VALUE
-newcartoon = {}  # Establish empty dict
-for key, value in cartoon.items():  
-        newcartoon[value] = key  # For each pair in orig dict add to new dict but REVERSE the key-value pair.
-print(newcartoon)  # Print to verify the dict is reversed so you can now sort by this key...
+#  SORT A DICT BY VALUES INSTEAD OF KEYS AND ACCESS BOTH VALUE AND CORRESPONDING KEY SORTED BY VALUE.
+newcartoon = {}
+for key, value in cartoon.items():
+	newcartoon[value] = key  # For each pair in orig dict add to new dict but REVERSE the key-value pair.
+print(newcartoon)  # Printing verifies the dict is reversed, but it is not yet sorted.
 for key, value in sorted(newcartoon.items()):
-    print(f"\033[33m{key}: {value}", end = "| ")
+	print(f"\033[33m{key}: {value}", end="| ")
 print("\nIntroducing in alphabetical order: ")
 for key, value in sorted(newcartoon.items()):  # Now you can alpha sort and print by the new key which is the value you wanted to sort by in the first place.
-    print(f"\033[32mOur famous {key}'s name is {value}!")
+	print(f"\033[32mOur famous {key}'s name is {value}!")
+print()
 
 # THERE MUST BE A BETTER WAY!
 # YES! A MUCH EASIER WAY:
+cartoon = {'Tom': 'Cat', 'Jerry': 'Mouse', 'Leo': 'Lion', 'Woody': 'Woodpecker'}
+cartoon_dictcomp = {value:key for key, value in cartoon.items()}
+print(dict(sorted(cartoon_dictcomp.items())))
+
 we = {'fun': 10, 'sports': 3, 'chef': 9, 'zebra': 1, 'train': 7}
 a = sorted(we.items(), key=lambda t: t[1])
 print(a)
+print()
+
+desert = {'apple pie': 'amazing', 'christmas cake': 'extraordinary', 'fruit tart': 'divine', 'pear pie': 'stellar'}
+for key, value in sorted(desert.items(), key=lambda item: item[1]):
+	print(f'{key}: {value}')
+print()
 
 cake = {'fun': 10, 'sports': 3, 'chef': 9, 'zebra': 1, 'train': 7}
-for k, v in sorted(cake.items(), key=lambda t: t[1]):
-    print(v, k)
+for key, value in sorted(cake.items(), key=lambda item: item[1]):
+	print(f'{value} {key}')
+print()
+for key, value in sorted(cake.items(), key=lambda item: item[1]):
+	print(f'{key} {value}')
+print()
 
-pie = {'fun': 10, 'sports': 3, 'chef': 9, 'zebra': 1, 'train': 7}
-b = dict(sorted((value, key) for (key, value) in pie.items()))
-print(b) # It also works without dict with just tuples.
+curd = {'lemon': 10, 'vanilla': 3, 'blackberry': 9, 'white chocolate': 8, 'raspberry': 7}
+print(sorted((v, k) for (k, v) in curd.items()))
+print()
 
-curd = {'lemon': 10, 'vanilla': 3, 'blackberry': 9, 'white chocolate': 8, 'rasberry': 7}           
-c = sorted((value, key) for (key, value) in curd.items())
-print(c)
+sports = {'baseball': 'Cubs', 'basketball': 'Bulls', 'football': 'Bears', 'tennis': 'Ivan Lendl'}
+print(dict(sorted((val, key) for (key, val) in sports.items())))
