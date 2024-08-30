@@ -1,0 +1,93 @@
+# Uses a lamba function to allow the user to search for a piece of text within a sample and also return the specified context as indicated by the index range set in the lambda function.
+
+excerpt = """
+ Such, then, was the person that I saw seated on the transom when I followed Captain Peleg down into the cabin.
+ The space between the decks was small; and there, bolt-upright, sat old Bildad, who always sat so, and never
+ leaned, and this to save his coat tails. His broad-brim was placed beside him; his legs were stiffly crossed;
+ his drab vesture was buttoned up to his chin; and spectacles on nose, he seemed absorbed in reading from a
+ ponderous volume. “Bildad,” cried Captain Peleg, “at it again, Bildad, eh? Ye have been studying those
+ Scriptures, now, for the last thirty years, to my certain knowledge. How far ye got, Bildad?” As if long
+ habituated to such profane talk from his old shipmate, Bildad, without noticing his present irreverence,
+ quietly looked up, and seeing me, glanced again inquiringly towards Peleg.
+ “He says he’s our man, Bildad,” said Peleg, “he wants to ship.”
+“Dost thee?” said Bildad, in a hollow tone, and turning round to me.
+“I dost,” said I unconsciously, he was so intense a Quaker.
+“What do ye think of him, Bildad?” said Peleg.
+“He’ll do,” said Bildad, eyeing me, and then went on spelling away at his book in a mumbling tone quite audible.
+I thought him the queerest old Quaker I ever saw, especially as Peleg, his friend and old shipmate, seemed
+such a blusterer. But I said nothing, only looking round me sharply. Peleg now threw open a chest, and drawing
+forth the ship’s articles, placed pen and ink before him, and seated himself at a little table. I began to
+think it was high time to settle with myself at what terms I would be willing to engage for the voyage.
+I was already aware that in the whaling business they paid no wages; but all hands, including the captain,
+received certain shares of the profits called lays, and that these lays were proportioned to the degree of
+importance pertaining to the respective duties of the ship’s company. I was also aware that being a green
+hand at whaling, my own lay would not be very large; but considering that I was used to the sea, could steer
+a ship, splice a rope, and all that, I made no doubt that from all I had heard I should be offered at least
+the 275th lay—that is, the 275th part of the clear net proceeds of the voyage, whatever that might eventually
+amount to. And though the 275th lay was what they call a rather long lay, yet it was better than nothing;
+and if we had a lucky voyage, might pretty nearly pay for the clothing I would wear out on it, not to speak
+of my three years’ beef and board, for which I would not have to pay one stiver. It might be thought that
+this was a poor way to accumulate a princely fortune—and so it was, a very poor way indeed. But I am one
+of those that never take on about princely fortunes, and am quite content if the world is ready to board
+and lodge me, while I am putting up at this grim sign of the Thunder Cloud. Upon the whole, I thought that
+the 275th lay would be about the fair thing, but would not have been surprised had I been offered the 200th,
+considering I was of a broad-shouldered make. But one thing, nevertheless, that made me a little distrustful
+about receiving a generous share of the profits was this: Ashore, I had heard something of both Captain Peleg
+and his unaccountable old crony Bildad; how that they being the principal proprietors of the Pequod, therefore
+the other and more inconsiderable and scattered owners, left nearly the whole management of the ship’s affairs
+to these two. And I did not know but what the stingy old Bildad might have a mighty deal to say about shipping
+hands, especially as I now found him on board the Pequod, quite at home there in the cabin, and reading his
+Bible as if at his own fireside. Now while Peleg was vainly trying to mend a pen with his jack-knife,
+old Bildad, to my no small surprise, considering that he was such an interested party in these proceedings;
+Bildad never heeded us, but went on mumbling to himself out of his book, “Lay not up for yourselves treasures
+upon earth, where moth—”
+"""
+query = "Thunder Cloud"
+lamb = lambda excerpt, query: excerpt[excerpt.find(query) - 100:excerpt.find(query) + 100] if query in excerpt else print("Not found.")
+raw_text = lamb(excerpt, query)
+
+highlighted_query = raw_text.replace("Thunder Cloud", "\033[1m\033[36mThunder Cloud\033[39m\033[0m")
+print(highlighted_query)
+print()
+
+textbook = """
+The Python language is in constant development, and each new version brings new
+language elements that may render old Python code incompatible with the latest version
+of the interpreter. While developers do their best to maintain maximum compatibility,
+simply adding a keyword, for example, has already made code incompatible that
+uses the new keyword as a normal identifier.
+The interpreter contains a mode that allows you to use some selected language elements
+of the upcoming Python version with the current version. This is to simplify the
+change from one version to the next as tests can be run against some new features of
+the next version before it’s published.
+To import a scheduled feature, you can use an import statement:
+from __future__ import language_element
+The language elements can be used as if they were encapsulated in a module called
+__future__. Note, however, that you can’t handle the __future__ module quite as freely
+as you are used to from other modules. For example, you may import it only at the
+© 2023 by Rheinwerk Publishing Inc., Boston (MA)
+339
+18.5 Planned Language Elements
+beginning of a program file. Only comments, empty lines, or other future imports may
+precede such an import statement.
+An example of a future import is print_function, which was introduced in Python 2.6,
+where it imports the print function. At the same time, the print keyword is removed
+from the language when importing print_function. In this way, the behavior of Python
+3 can be emulated:
+>>> from __future__ import print_function
+>>> print "Test"
+File "<stdin>", line 1
+print "Test"
+^
+SyntaxError: invalidsyntax
+>>> print("Test")
+Test
+This particular future import comes in handy when preparing legacy Python 2 code for
+being ported to Python 3."""
+
+search = "upcoming Python version"
+func = lambda textbook, search: textbook[textbook.find(search) - 95:textbook.find(search) + 109] if search in textbook else print("Not found.")
+result = func(textbook, search)
+flag = result.replace(search, f"\033[1m\033[32m{search}\033[39m\033[0m")
+
+print(flag)
