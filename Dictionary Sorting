@@ -36,8 +36,8 @@ print()
 # THERE MUST BE A BETTER WAY!
 # YES! A MUCH EASIER WAY:
 cartoon = {'Tom': 'Cat', 'Jerry': 'Mouse', 'Leo': 'Lion', 'Woody': 'Woodpecker'}
-cartoon_dictcomp = {value:key for key, value in cartoon.items()}
-print(dict(sorted(cartoon_dictcomp.items())))
+cartoon_dictcomp = {value:key for key, value in cartoon.items()}  # ** Likely the best way in most cases. aka: rd = {(y, x) for (x, y) in d.items()}
+print((sorted(cartoon_dictcomp.items())))
 
 we = {'fun': 10, 'sports': 3, 'chef': 9, 'zebra': 1, 'train': 7}
 a = sorted(we.items(), key=lambda t: t[1])
