@@ -63,3 +63,11 @@ print()
 
 sports = {'baseball': 'Cubs', 'basketball': 'Bulls', 'football': 'Bears', 'tennis': 'Ivan Lendl'}
 print(dict(sorted((val, key) for (key, val) in sports.items())))
+print()
+
+# make a dict from two zipped lists
+lngs = ['C#', 'C++', 'HTML/CSS', 'Java', 'JavaScript', 'Python', 'SQL']
+names = ['Elisa', 'Ellen', 'Lindsay', 'Sandy', 'Steve', 'Todd', 'Tonia']
+
+zipdictLangs = {x:y for (x,y) in zip(lngs, names)}
+print(zipdictLangs)
