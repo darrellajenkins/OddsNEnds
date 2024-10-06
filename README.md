@@ -1,5 +1,5 @@
 # OddsNEnds
 Miscellany code documenting my various moments of Python epiphany.
-A repository for various apps created in Python.
+Documentation for various scripts, functions, or mini-apps created in Python.
 *.python linguist-detectable=true
 
