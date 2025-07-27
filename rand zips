@@ -1,4 +1,3 @@
-import heapq
 import random
 from operator import itemgetter as iget
 
@@ -21,7 +20,7 @@ names = ['Fluffkins', 'Biscuit', 'Zigzag', 'Wooferson', 'Nacho', 'Gizmo', 'Bubbl
          'Wrumples', 'Nutkin', 'Gizmotron', 'Butterstuff', 'Zazzy', 'Wuffles', 'Nutrageous',
          'Gizmonoid', 'Butterworth', 'Muffintush', 'Wugglet', 'Nutster', 'Gizmonica', 'Buttertart',
          'Zbee', 'Wuggles', 'Nutstravaganza', 'Gizbot', 'Butterbear', 'Zeeble', 'Wuggy', 'Nutzoid',
-         'Gizmoppet', 'Butterbloop', 'Zeeker', 'Wuglet', 'Nutzzzy', 'Gizmosaurus', 'Butterboom',
+         'Gizmoppet', 'Butterbloop', 'Zeeker', 'Nutzzzy', 'Gizmosaurus', 'Butterboom',
          'Zeenie', 'Wugsly', 'Nutzywig', 'Gizmotronic', 'Butterbubble', 'Zeenie', 'Snickerpoo',
          'Fluffernutter', 'Wigglebutt', 'Flufferpup', 'Snickerpup', 'Wigglemutt', 'Fluffertail',
          'Snickerpaws', 'Wigglewagg', 'Flufferspots', 'Snickerspark', 'Fluffershake',
@@ -30,17 +29,17 @@ names = ['Fluffkins', 'Biscuit', 'Zigzag', 'Wooferson', 'Nacho', 'Gizmo', 'Bubbl
          'Flufferfloof', 'Snorkelpup', 'Wigglezag', 'Flufferpuff', 'Snugglehound']
 
 servers_nonorder = list(zip(names, server_times))
-servers_sort = sorted(servers_nonorder)
+servers_sort = sorted(servers_nonorder, key=lambda t:t[1])
 print(f"\033[1mHere are our {len(servers_sort)} servers shown in alphabetical order with the average milisecond processing time per 10 gigabytes: \033[0m")
 print("\n".join(f"{s}.\t{d[0]}, {d[1]}" for s, d in enumerate(servers_sort, start=1)))
 
 print()
-ten_best = heapq.nsmallest(10, servers_sort, key=lambda t:t[1])
+ten_best = servers_sort[:10]
 print(f"\033[1mHere are the {len(ten_best)} servers that have the shortest average milisecond processing time 10 gigabytes: \033[0m")
 print(ten_best)
 
 print()
-print(f"\033[1mHere is a random sample of 20 of our servers displaying the possible processing time of a unit that you may be assigned upon purchase: \033[0m")
+print(f"\033[1mHere is a random sample of 20 of our servers displaying the possible processing time of a unit that may be assigned to you after purchase: \033[0m")
 print(random.sample(servers_sort, 20))
 
 print()
